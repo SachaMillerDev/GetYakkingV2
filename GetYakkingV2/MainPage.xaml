@@ -1,14 +1,38 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:GetYakkingV2"
              x:Class="GetYakkingV2.MainPage"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
-
-    <BlazorWebView x:Name="blazorWebView" HostPage="wwwroot/index.html">
-        <BlazorWebView.RootComponents>
-            <RootComponent Selector="#app" ComponentType="{x:Type local:Main}" />
-        </BlazorWebView.RootComponents>
-    </BlazorWebView>
-
+    <Grid x:Name="MainGrid" RowDefinitions="*,*,*">
+        <Canvas x:Name="BubbleCanvas" Grid.RowSpan="3"/>
+        <Frame Grid.Row="0" BorderColor="White" CornerRadius="0">
+            <Button Text="Classic" Clicked="OnClassicClicked" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#3e89cf" Offset="0.1" />
+                        <GradientStop Color="White" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </Frame>
+        <Frame Grid.Row="1" BorderColor="White" CornerRadius="0">
+            <Button Text="Couples" Clicked="OnCouplesClicked" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#fb9b0d" Offset="0.1" />
+                        <GradientStop Color="White" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </Frame>
+        <Frame Grid.Row="2" BorderColor="White" CornerRadius="0">
+            <Button Text="Risky" Clicked="OnRiskyClicked" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#ef2424" Offset="0.1" />
+                        <GradientStop Color="White" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </Frame>
+    </Grid>
 </ContentPage>
