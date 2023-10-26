@@ -1,52 +1,56 @@
 ﻿using System;
 using Microsoft.Maui.Controls;
-using Microsoft.Maui.Graphics;
 using System.Timers;
-using Android.Graphics;
-using Microsoft.Maui.Controls.Shapes;
+using SkiaSharp;
+using SkiaSharp.Views.Maui;
 
 namespace GetYakkingV2
 {
     public partial class MainPage : ContentPage
     {
         System.Timers.Timer timer;
-
+        List<SKPoint> bubbles = new List<SKPoint>();
 
         public MainPage()
         {
             InitializeComponent();
-            timer = new Timer(1000); // Create a bubble every 1 second
+            timer = new System.Timers.Timer(1000);
             timer.Elapsed += CreateBubble;
             timer.Start();
         }
 
         private void CreateBubble(object sender, ElapsedEventArgs e)
         {
-            Device.InvokeOnMainThreadAsync(() =>
+            Random rand = new Random();
+            SKPoint newBubble = new SKPoint(rand.Next(0, 300), 600);
+            bubbles.Add(newBubble);
+
+            // Invalidate the SkiaSharp canvas to trigger a redraw
+            BubbleCanvas.InvalidateSurface();
+        }
+
+        private void OnPaintSurface(object sender, SKPaintSurfaceEventArgs e)
+        {
+            SKImageInfo info = e.Info;
+            SKSurface surface = e.Surface;
+            SKCanvas canvas = surface.Canvas;
+
+            canvas.Clear();
+
+            foreach (var bubble in bubbles)
             {
-                // Create a new bubble
-                var bubble = new Ellipse
+                canvas.DrawCircle(bubble, 25, new SKPaint
                 {
-                    WidthRequest = 50,
-                    HeightRequest = 50,
-                    Fill = Brushes.Blue,
-                    Stroke = Brushes.White,
-                    StrokeThickness = 2
-                };
+                    Style = SKPaintStyle.Fill,
+                    Color = SKColors.Blue
+                });
+            }
 
-                // Add the bubble to the Canvas
-                BubbleCanvas.Children.Add(bubble);
-                Canvas.SetLeft(bubble, new Random().Next(0, 300)); // Random starting position
-                Canvas.SetTop(bubble, 600); // Start at the bottom
-
-                // Animate the bubble upwards
-                var animation = new Animation(callback: d => Canvas.SetTop(bubble, 600 - d),
-                                              start: 0,
-                                              end: 600,
-                                              easing: Easing.Linear);
-
-                animation.Commit(this, "BubbleAnimation", length: 5000, finished: (d, b) => BubbleCanvas.Children.Remove(bubble));
-            });
+            // Update bubble positions for next draw
+            for (int i = 0; i < bubbles.Count; i++)
+            {
+                bubbles[i] = new SKPoint(bubbles[i].X, bubbles[i].Y - 5);
+            }
         }
 
         private void OnClassicClicked(object sender, EventArgs e)
