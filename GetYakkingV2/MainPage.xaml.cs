@@ -24,6 +24,5 @@ namespace GetYakkingV2
         {
             await Navigation.PushAsync(new RiskyPage());
         }
-
     }
 }
