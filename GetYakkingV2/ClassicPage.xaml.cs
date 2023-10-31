@@ -8,7 +8,6 @@ namespace GetYakkingV2
 {
     public partial class ClassicPage : ContentPage
     {
-        private System.Timers.Timer timer;
 
         public ClassicPage(string message)
         {
@@ -16,14 +15,15 @@ namespace GetYakkingV2
             ShowMessage(message);
         }
 
-        private void ShowMessage(string message)
+        private async void ShowMessage(string message)
         {
             messageLabel.Text = message;
             messageLabel.Opacity = 0;
-            messageLabel.FadeTo(1, 1000);
-            timer = new System.Timers.Timer(5000);
-            timer.Elapsed += (sender, e) => messageLabel.FadeTo(0, 1000);
-            timer.Start();
+            await messageLabel.FadeTo(1, 1000);
+            await Task.Delay(5000);
+            await messageLabel.FadeTo(0, 1000);
         }
+
+
     }
 }
