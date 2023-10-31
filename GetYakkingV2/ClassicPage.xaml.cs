@@ -9,10 +9,10 @@ namespace GetYakkingV2
     public partial class ClassicPage : ContentPage
     {
 
-        public ClassicPage(string message)
+        public ClassicPage()
         {
             InitializeComponent();
-            ShowMessage(message);
+            ShowMessage("Your initial message here");
         }
 
         private async void ShowMessage(string message)
@@ -23,7 +23,6 @@ namespace GetYakkingV2
             await Task.Delay(5000);
             await messageLabel.FadeTo(0, 1000);
         }
-
 
     }
 }

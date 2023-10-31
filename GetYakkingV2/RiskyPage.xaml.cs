@@ -8,12 +8,11 @@ namespace GetYakkingV2
 {
     public partial class RiskyPage : ContentPage
     {
-        private System.Timers.Timer timer;
 
         public RiskyPage(string message)
         {
             InitializeComponent();
-            ShowMessage(message);
+            ShowMessage("Your initial message here");
         }
 
         private async void ShowMessage(string message)
@@ -24,6 +23,5 @@ namespace GetYakkingV2
             await Task.Delay(5000);
             await messageLabel.FadeTo(0, 1000);
         }
-
     }
 }

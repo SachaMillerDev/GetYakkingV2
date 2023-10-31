@@ -12,17 +12,18 @@ namespace GetYakkingV2
 
         private async void OnClassicClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ClassicPage("Welcome to classic GetYakking! ..."));
+            await Navigation.PushAsync(new ClassicPage());
         }
 
         private async void OnCouplesClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new CouplesPage("Welcome to couples Yakking! ..."));
+            await Navigation.PushAsync(new CouplesPage());
         }
 
         private async void OnRiskyClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new RiskyPage("Drunk Yakking is played ..."));
+            await Navigation.PushAsync(new RiskyPage());
         }
+
     }
 }
