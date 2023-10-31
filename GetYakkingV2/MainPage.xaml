@@ -3,11 +3,7 @@
              x:Class="GetYakkingV2.MainPage"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
     <Grid x:Name="MainGrid" RowDefinitions="*,*,*">
-        <!-- Frame for Classic Button -->
         <Frame Grid.Row="0" BorderColor="White" CornerRadius="0">
-            <GraphicsView x:Name="BubbleGraphicsView1" Draw="OnDraw">
-                <!-- Bubbles will be added here dynamically -->
-            </GraphicsView>
             <Button Text="Classic" Clicked="OnClassicClicked" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                 <Button.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -17,11 +13,7 @@
                 </Button.Background>
             </Button>
         </Frame>
-        <!-- Frame for Couples Button -->
         <Frame Grid.Row="1" BorderColor="White" CornerRadius="0">
-            <GraphicsView x:Name="BubbleGraphicsView2" Draw="OnDraw">
-                <!-- Bubbles will be added here dynamically -->
-            </GraphicsView>
             <Button Text="Couples" Clicked="OnCouplesClicked" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                 <Button.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -31,11 +23,7 @@
                 </Button.Background>
             </Button>
         </Frame>
-        <!-- Frame for Risky Button -->
         <Frame Grid.Row="2" BorderColor="White" CornerRadius="0">
-            <GraphicsView x:Name="BubbleGraphicsView3" Draw="OnDraw">
-                <!-- Bubbles will be added here dynamically -->
-            </GraphicsView>
             <Button Text="Risky" Clicked="OnRiskyClicked" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                 <Button.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
