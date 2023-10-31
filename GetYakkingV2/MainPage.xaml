@@ -24,7 +24,7 @@
             </Button>
         </Frame>
         <Frame Grid.Row="2" BorderColor="White" CornerRadius="0">
-            <Button Text="Risky" Clicked="OnRiskyClicked" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <Button Text="Risky +18" Clicked="OnRiskyClicked" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                 <Button.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Color="#ef2424" Offset="0.1" />
