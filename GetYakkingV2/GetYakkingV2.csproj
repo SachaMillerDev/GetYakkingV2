@@ -54,4 +54,28 @@
         <PackageReference Include="SkiaSharp.Views.Maui.Core" Version="2.88.6" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="RiskyPage.xaml.cs">
+        <DependentUpon>RiskyPage.xaml</DependentUpon>
+      </Compile>
+      <Compile Update="ClassicPage.xaml.cs">
+        <DependentUpon>ClassicPage.xaml</DependentUpon>
+      </Compile>
+      <Compile Update="CouplesPage.xaml.cs">
+        <DependentUpon>CouplesPage.xaml</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <MauiXaml Update="RiskyPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="ClassicPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="CouplesPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+    </ItemGroup>
+
 </Project>
