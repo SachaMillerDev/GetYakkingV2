@@ -1,14 +1,11 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:compat="clr-namespace:Microsoft.Maui.Controls.Compatibility;assembly=Microsoft.Maui.Controls.Compatibility"
-             x:Class="GetYakkingV2.MainPage"
-             BackgroundColor="{DynamicResource PageBackgroundColor}">
-    <Grid x:Name="MainGrid" RowDefinitions="*,*,*">
+             x:Class="GetYakkingV2.MainPage">
+    <Grid x:Name="MainGrid" RowDefinitions="*,*,*,*">
         <!-- Video Background -->
-        <compat:VideoView Source="C:\Users\SachaMiller\Downloads\Animated Video Background - Colorful Saber Lighting Frame for Edits - Background video effects.mp4" 
-                         AutoPlay="True" IsLooping="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+        <WebView x:Name="VideoBackground" Grid.RowSpan="4" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
         <!-- Buttons -->
-        <Button Grid.Row="0" Text="Classic" Clicked="OnClassicClicked" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" FontSize="Medium" FontAttributes="Bold">
+        <Button Grid.Row="0" Text="Classic" Clicked="OnClassicClicked" HeightRequest="60" WidthRequest="200" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Medium" FontAttributes="Bold">
             <Button.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#3e89cf" Offset="0.1" />
@@ -16,7 +13,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Grid.Row="1" Text="Couples" Clicked="OnCouplesClicked" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" FontSize="Medium" FontAttributes="Bold">
+        <Button Grid.Row="1" Text="Couples" Clicked="OnCouplesClicked" HeightRequest="60" WidthRequest="200" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Medium" FontAttributes="Bold">
             <Button.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#fb9b0d" Offset="0.1" />
@@ -24,7 +21,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Grid.Row="2" Text="Risky +18" Clicked="OnRiskyClicked" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" FontSize="Medium" FontAttributes="Bold">
+        <Button Grid.Row="2" Text="Risky +18" Clicked="OnRiskyClicked" HeightRequest="60" WidthRequest="200" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Medium" FontAttributes="Bold">
             <Button.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#ef2424" Offset="0.1" />
@@ -33,6 +30,6 @@
             </Button.Background>
         </Button>
         <!-- Added Label for displaying messages -->
-        <Label x:Name="messageLabel" Opacity="0" Grid.RowSpan="3" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+        <Label x:Name="messageLabel" Opacity="0" Grid.Row="3" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
     </Grid>
 </ContentPage>
