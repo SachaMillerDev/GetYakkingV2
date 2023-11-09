@@ -1,17 +1,20 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GetYakkingV2.ClassicPage">
-    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
-        <Frame x:Name="card" WidthRequest="300" HeightRequest="400" Padding="0" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
-            <Frame.GestureRecognizers>
+    <StackLayout>
+        <Grid>
+            <!-- Existing Grid definitions -->
+        </Grid>
+        <Grid x:Name="card" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="200" WidthRequest="150">
+            <Grid.GestureRecognizers>
                 <TapGestureRecognizer Tapped="OnCardTapped"/>
-            </Frame.GestureRecognizers>
-            <ContentView x:Name="frontView">
-                <Image Source="C:\Users\SachaMiller\source\repos\GetYakkingV2\Imges\Classic_Cover.png" Aspect="AspectFill"/>
-            </ContentView>
-            <ContentView x:Name="backView" IsVisible="False">
+            </Grid.GestureRecognizers>
+            <Grid x:Name="frontView" BackgroundColor="LightBlue">
+                <Image Source="C:\Users\SachaMiller\source\repos\GetYakkingV2\Imges\Classic_Cover.png"/>
+            </Grid>
+            <Grid x:Name="backView" BackgroundColor="LightCoral" IsVisible="False">
                 <Label Text="Back" HorizontalOptions="Center" VerticalOptions="Center"/>
-            </ContentView>
-        </Frame>
-    </VerticalStackLayout>
+            </Grid>
+        </Grid>
+    </StackLayout>
 </ContentPage>

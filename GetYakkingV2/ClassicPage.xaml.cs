@@ -14,17 +14,19 @@ namespace GetYakkingV2
         {
             if (frontView.IsVisible)
             {
-                await card.ScaleYTo(0.1, 150, Easing.Linear);
+                await frontView.RotateYTo(90, 250); // Rotate halfway
                 frontView.IsVisible = false;
                 backView.IsVisible = true;
-                await card.ScaleYTo(1, 150, Easing.Linear);
+                backView.RotationY = 270; // Set rotation to 270 degrees to prepare for flip back
+                await backView.RotateYTo(360, 250); // Rotate the rest of the way
             }
             else
             {
-                await card.ScaleYTo(0.1, 150, Easing.Linear);
+                await backView.RotateYTo(270, 250); // Rotate halfway
                 backView.IsVisible = false;
                 frontView.IsVisible = true;
-                await card.ScaleYTo(1, 150, Easing.Linear);
+                frontView.RotationY = 90; // Set rotation to 90 degrees to prepare for flip back
+                await frontView.RotateYTo(0, 250); // Rotate the rest of the way
             }
         }
     }
