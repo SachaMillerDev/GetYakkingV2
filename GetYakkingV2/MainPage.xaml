@@ -5,7 +5,7 @@
         <!-- Video Background -->
         <WebView x:Name="VideoBackground" Grid.RowSpan="4" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
         <!-- Buttons -->
-        <Button Grid.Row="0" Text="Classic" Clicked="OnClassicClicked" HeightRequest="60" WidthRequest="200" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Medium" FontAttributes="Bold">
+        <Button Grid.Row="0" Text="Classic" Clicked="OnClassicClicked" HeightRequest="120" WidthRequest="400" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Medium" FontAttributes="Bold">
             <Button.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#3e89cf" Offset="0.1" />
@@ -13,7 +13,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Grid.Row="1" Text="Couples" Clicked="OnCouplesClicked" HeightRequest="60" WidthRequest="200" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Medium" FontAttributes="Bold">
+        <Button Grid.Row="1" Text="Couples" Clicked="OnCouplesClicked" HeightRequest="120" WidthRequest="400" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Medium" FontAttributes="Bold">
             <Button.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#fb9b0d" Offset="0.1" />
@@ -21,7 +21,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Grid.Row="2" Text="Risky +18" Clicked="OnRiskyClicked" HeightRequest="60" WidthRequest="200" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Medium" FontAttributes="Bold">
+        <Button Grid.Row="2" Text="Risky +18" Clicked="OnRiskyClicked" HeightRequest="120" WidthRequest="400" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Medium" FontAttributes="Bold">
             <Button.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#ef2424" Offset="0.1" />

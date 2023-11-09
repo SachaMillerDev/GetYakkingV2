@@ -1,19 +1,25 @@
-﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GetYakkingV2.ClassicPage">
     <StackLayout>
+        <!-- Rules Button at the top left -->
+        <Button x:Name="rulesButton" Text="Rules" Clicked="OnRulesClicked" HorizontalOptions="Start" VerticalOptions="Start" WidthRequest="100" HeightRequest="50" />
         <Grid>
             <!-- Existing Grid definitions -->
+            <!-- Add your rules label here, initially hidden -->
+            <Label x:Name="rulesLabel" Text="Your rules text here" IsVisible="False" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
         </Grid>
+        <!-- Card Grid -->
         <Grid x:Name="card" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="200" WidthRequest="150">
             <Grid.GestureRecognizers>
                 <TapGestureRecognizer Tapped="OnCardTapped"/>
             </Grid.GestureRecognizers>
             <Grid x:Name="frontView" BackgroundColor="LightBlue">
-                <Image Source="C:\Users\SachaMiller\source\repos\GetYakkingV2\Imges\Classic_Cover.png"/>
+                <!-- Existing front view content -->
             </Grid>
             <Grid x:Name="backView" BackgroundColor="LightCoral" IsVisible="False">
-                <Label Text="Back" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <!-- Existing back view content -->
             </Grid>
         </Grid>
     </StackLayout>
