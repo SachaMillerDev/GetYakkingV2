@@ -15,8 +15,8 @@
             <Grid.GestureRecognizers>
                 <TapGestureRecognizer Tapped="OnCardTapped"/>
             </Grid.GestureRecognizers>
-            <Grid x:Name="frontView" BackgroundColor="LightBlue">
-                <!-- Existing front view content -->
+            <Grid x:Name="frontView">
+                <Image Source="C:\Users\SachaMiller\source\repos\GetYakkingV2\Imges\Classic_Cover.png" Aspect="AspectFill"/>
             </Grid>
             <Grid x:Name="backView" BackgroundColor="LightCoral" IsVisible="False">
                 <!-- Existing back view content -->

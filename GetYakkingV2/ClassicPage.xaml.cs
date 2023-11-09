@@ -5,9 +5,18 @@ namespace GetYakkingV2
 {
     public partial class ClassicPage : ContentPage
     {
+        private bool areRulesVisible = false;
+
         public ClassicPage()
         {
             InitializeComponent();
+        }
+
+        private void OnRulesClicked(object sender, EventArgs e)
+        {
+            areRulesVisible = !areRulesVisible;
+            card.IsVisible = !areRulesVisible;
+            rulesLabel.IsVisible = areRulesVisible;
         }
 
         private async void OnCardTapped(object sender, EventArgs e)
@@ -28,13 +37,6 @@ namespace GetYakkingV2
                 frontView.RotationY = -90; // Set rotation to -90 degrees to prepare for flip back
                 await frontView.RotateYTo(0, 250); // Rotate the rest of the way
             }
-        }
-
-        private void OnRulesClicked(object sender, EventArgs e)
-        {
-            // Hide the card and show the rules
-            card.IsVisible = false;
-            rulesLabel.IsVisible = true;
         }
 
     }
