@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.Maui.Controls;
-using System.Threading.Tasks;
 
 namespace GetYakkingV2
 {
@@ -11,13 +10,22 @@ namespace GetYakkingV2
             InitializeComponent();
         }
 
-        private async void OnButton1Clicked(object sender, EventArgs e)
+        private async void OnCardTapped(object sender, EventArgs e)
         {
-            messageLabel.Text = "text";
-            messageLabel.Opacity = 0;
-            await messageLabel.FadeTo(1, 1000);
-            await Task.Delay(5000);
-            await messageLabel.FadeTo(0, 1000);
+            if (frontView.IsVisible)
+            {
+                await card.ScaleYTo(0.1, 150, Easing.Linear);
+                frontView.IsVisible = false;
+                backView.IsVisible = true;
+                await card.ScaleYTo(1, 150, Easing.Linear);
+            }
+            else
+            {
+                await card.ScaleYTo(0.1, 150, Easing.Linear);
+                backView.IsVisible = false;
+                frontView.IsVisible = true;
+                await card.ScaleYTo(1, 150, Easing.Linear);
+            }
         }
     }
 }

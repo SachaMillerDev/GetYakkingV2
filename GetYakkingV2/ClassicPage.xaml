@@ -1,16 +1,17 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GetYakkingV2.ClassicPage">
-    <StackLayout>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Button x:Name="button1" Text="Rules" Clicked="OnButton1Clicked" 
-                    BackgroundColor="#3e89cf" HorizontalOptions="End" WidthRequest="100" HeightRequest="40"/>
-            <Label x:Name="messageLabel" Grid.Row="1" Opacity="0" VerticalOptions="CenterAndExpand" 
-                   HorizontalOptions="CenterAndExpand" BackgroundColor="White"/>
-        </Grid>
-    </StackLayout>
+    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+        <Frame x:Name="card" WidthRequest="300" HeightRequest="400" Padding="0" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnCardTapped"/>
+            </Frame.GestureRecognizers>
+            <ContentView x:Name="frontView">
+                <Image Source="C:\Users\SachaMiller\source\repos\GetYakkingV2\Imges\Classic_Cover.png" Aspect="AspectFill"/>
+            </ContentView>
+            <ContentView x:Name="backView" IsVisible="False">
+                <Label Text="Back" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </ContentView>
+        </Frame>
+    </VerticalStackLayout>
 </ContentPage>
