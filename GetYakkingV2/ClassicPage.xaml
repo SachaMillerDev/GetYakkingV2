@@ -1,22 +1,21 @@
-﻿
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GetYakkingV2.ClassicPage">
     <StackLayout>
-        <!-- Rules Button at the top left -->
-        <Button x:Name="rulesButton" Text="Rules" Clicked="OnRulesClicked" HorizontalOptions="Start" VerticalOptions="Start" WidthRequest="100" HeightRequest="50" />
+        <!-- Rules Button at the top right with margin -->
+        <Button x:Name="rulesButton" Text="Show Rules" BackgroundColor="#3e89cf" Clicked="OnRulesClicked" HorizontalOptions="End" VerticalOptions="Start" Margin="0,2,2,0" WidthRequest="120" HeightRequest="40" />
         <Grid>
-            <!-- Existing Grid definitions -->
-            <!-- Add your rules label here, initially hidden -->
+            <!-- rules label here, initially hidden -->
             <Label x:Name="rulesLabel" Text="Your rules text here" IsVisible="False" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
         </Grid>
         <!-- Card Grid -->
-        <Grid x:Name="card" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="200" WidthRequest="150">
+        <Grid x:Name="card" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="300" WidthRequest="250" >
             <Grid.GestureRecognizers>
                 <TapGestureRecognizer Tapped="OnCardTapped"/>
             </Grid.GestureRecognizers>
-            <Grid x:Name="frontView">
-                <Image Source="C:\Users\SachaMiller\source\repos\GetYakkingV2\Imges\Classic_Cover.png" Aspect="AspectFill"/>
+            <Grid x:Name="frontView" BackgroundColor="white">
+                <!-- Center the image within the card -->
+                <Image Source="C:\Users\SachaMiller\source\repos\GetYakkingV2\Imges\Classic_Cover.png" Aspect="AspectFit"/>
             </Grid>
             <Grid x:Name="backView" BackgroundColor="LightCoral" IsVisible="False">
                 <!-- Existing back view content -->
