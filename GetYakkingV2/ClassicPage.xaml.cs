@@ -6,6 +6,7 @@ namespace GetYakkingV2
     public partial class ClassicPage : ContentPage
     {
         private bool areRulesVisible = false;
+        private int flipCounter = 0; // Counter for card flips
 
         public ClassicPage()
         {
@@ -23,6 +24,9 @@ namespace GetYakkingV2
 
         private async void OnCardTapped(object sender, EventArgs e)
         {
+            flipCounter++; // Increment the flip counter
+            UpdateFlipCounterDisplay(); // Update the display of the flip counter
+
             if (frontView.IsVisible)
             {
                 await frontView.RotateYTo(-90, 250); // Rotate halfway
@@ -41,5 +45,10 @@ namespace GetYakkingV2
             }
         }
 
+        private void UpdateFlipCounterDisplay()
+        {
+            // Assuming you have a Label in your XAML for displaying the flip count
+            flipCounterLabel.Text = $"Flips - {flipCounter}";
+        }
     }
 }
