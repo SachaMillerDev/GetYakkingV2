@@ -18,7 +18,7 @@ namespace GetYakkingV2
             card.IsVisible = !areRulesVisible;
             rulesLabel.IsVisible = areRulesVisible;
             // Update the text of the rules button based on the state
-            rulesButton.Text = areRulesVisible ? "Hide Rules" : "Show Rules";
+            rulesButton.Text = areRulesVisible ? " Hide " : " Rules ";
         }
 
         private async void OnCardTapped(object sender, EventArgs e)

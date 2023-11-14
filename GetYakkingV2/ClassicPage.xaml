@@ -1,24 +1,27 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GetYakkingV2.ClassicPage">
+             x:Class="GetYakkingV2.ClassicPage"
+             BackgroundColor="#3e89cf">
+    
     <StackLayout>
         <!-- Rules Button at the top right with margin -->
-        <Button x:Name="rulesButton" Text="Show Rules" BackgroundColor="#3e89cf" Clicked="OnRulesClicked" HorizontalOptions="End" VerticalOptions="Start" Margin="0,2,2,0" WidthRequest="120" HeightRequest="40" />
-        <Grid>
-            <!-- rules label here, initially hidden -->
-            <Label x:Name="rulesLabel" Text="Your rules text here" IsVisible="False" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
-        </Grid>
-        <!-- Card Grid -->
-        <Grid x:Name="card" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="300" WidthRequest="250" >
-            <Grid.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnCardTapped"/>
-            </Grid.GestureRecognizers>
-            <Grid x:Name="frontView" BackgroundColor="white">
-                <!-- Center the image within the card -->
-                <Image Source="C:\Users\SachaMiller\source\repos\GetYakkingV2\Imges\Classic_Cover.png" Aspect="AspectFit"/>
-            </Grid>
-            <Grid x:Name="backView" BackgroundColor="LightCoral" IsVisible="False">
-                <!-- Existing back view content -->
+        <Button x:Name="rulesButton" Text="Rules" BackgroundColor="white" TextColor="#3e89cf" Clicked="OnRulesClicked" HorizontalOptions="End" VerticalOptions="Start" Margin="0,10,10,0" WidthRequest="150" HeightRequest="50" />
+        <Grid VerticalOptions="FillAndExpand">
+            <!-- Existing Grid definitions -->
+            <!-- Add your rules label here, initially hidden, with a grey background -->
+            <Label x:Name="rulesLabel" Text="Welcome to CLassic Get yakking,How the game works : The chief will read the card and the yakkers will answer, the Chief will then decide the best answer and award them a point with the scoring system. each round the Chief will chnage to the next player  " Margin="100,10,100,5" IsVisible="False" BackgroundColor="Gray" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
+            <!-- Card Grid moved lower on the screen -->
+            <Grid x:Name="card" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="330" WidthRequest="250" Margin="50,50,50,50">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCardTapped"/>
+                </Grid.GestureRecognizers>
+                <Grid x:Name="frontView" BackgroundColor="white">
+                    <!-- Center the image within the card -->
+                    <Image Source="C:\Users\SachaMiller\source\repos\GetYakkingV2\Imges\Classic_Cover.png" Aspect="AspectFit"/>
+                </Grid>
+                <Grid x:Name="backView" BackgroundColor="LightCoral" IsVisible="False">
+                    <!-- Existing back view content -->
+                </Grid>
             </Grid>
         </Grid>
     </StackLayout>
