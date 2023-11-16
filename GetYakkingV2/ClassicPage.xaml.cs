@@ -18,36 +18,51 @@ namespace GetYakkingV2
             areRulesVisible = !areRulesVisible;
             card.IsVisible = !areRulesVisible;
             rulesLabel.IsVisible = areRulesVisible;
-            // Update the text of the rules button based on the state
             rulesButton.Text = areRulesVisible ? " Hide " : " Rules ";
         }
 
         private async void OnCardTapped(object sender, EventArgs e)
         {
-            flipCounter++; // Increment the flip counter
-            UpdateFlipCounterDisplay(); // Update the display of the flip counter
+            card.Shadow = null; // Disable the shadow during the flip animation
 
-            if (frontView.IsVisible)
+            await frontView.RotateYTo(90, 250); // Rotate to 90 degrees
+            frontView.IsVisible = false;
+            backView.IsVisible = true;
+            backView.RotationY = -90; // Set rotation to -90 degrees for backView
+            await backView.RotateYTo(0, 250); // Rotate to 0 degrees
+            flipCounter++;
+            UpdateFlipCounterDisplay();
+
+            card.Shadow = new Shadow // Re-enable the shadow after the flip animation completes
             {
-                await frontView.RotateYTo(-90, 250); // Rotate halfway
-                frontView.IsVisible = false;
-                backView.IsVisible = true;
-                backView.RotationY = -270; // Set rotation to -270 degrees to prepare for flip back
-                await backView.RotateYTo(-360, 250); // Rotate the rest of the way
-            }
-            else
+                Brush = Brush.Black,
+                Offset = new Point(5f, 5f),
+                Opacity = 0.8f,
+                Radius = 10
+            };
+        }
+
+        private async void OnBackCardTapped(object sender, EventArgs e)
+        {
+            card.Shadow = null; // Disable the shadow during the flip animation
+
+            await backView.RotateYTo(90, 250); // Rotate to 90 degrees
+            backView.IsVisible = false;
+            frontView.IsVisible = true;
+            frontView.RotationY = -90; // Set rotation to -90 degrees for frontView
+            await frontView.RotateYTo(0, 250); // Rotate to 0 degrees
+
+            card.Shadow = new Shadow // Re-enable the shadow after the flip animation completes
             {
-                await backView.RotateYTo(-270, 250); // Rotate halfway
-                backView.IsVisible = false;
-                frontView.IsVisible = true;
-                frontView.RotationY = -90; // Set rotation to -90 degrees to prepare for flip back
-                await frontView.RotateYTo(0, 250); // Rotate the rest of the way
-            }
+                Brush = Brush.Black,
+                Offset = new Point(5f, 5f),
+                Opacity = 0.8f,
+                Radius = 10
+            };
         }
 
         private void UpdateFlipCounterDisplay()
         {
-            // Assuming you have a Label in your XAML for displaying the flip count
             flipCounterLabel.Text = $"Flips - {flipCounter}";
         }
     }

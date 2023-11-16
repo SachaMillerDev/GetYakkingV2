@@ -1,26 +1,38 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GetYakkingV2.ClassicPage"
-             BackgroundColor="#3e89cf">
+             BackgroundColor="#7ABFFF">
 
     <StackLayout>
-        <!-- Rules Button at the top right with margin -->
-        <Button x:Name="rulesButton" Text="Rules" BackgroundColor="white" TextColor="#3e89cf" Clicked="OnRulesClicked" HorizontalOptions="End" VerticalOptions="Start" Margin="0,10,10,0" WidthRequest="150" HeightRequest="50" />
+        <Button x:Name="rulesButton" Text="Rules" BackgroundColor="white" TextColor="#3e89cf" Clicked="OnRulesClicked" HorizontalOptions="End" VerticalOptions="Start" Margin="25,10,25,0" WidthRequest="100" HeightRequest="50" />
+
         <Grid VerticalOptions="FillAndExpand">
-            <!-- Existing Grid definitions -->
-            <Image Source="C:\Users\SachaMiller\source\repos\GetYakkingV2\Imges\Rules.png" Aspect="AspectFill"/>
-            <Label x:Name="rulesLabel" Text="Welcome to Classic Get Yakking, How the game works: The chief will read the card and the yakkers will answer, the Chief will then decide the best answer and award them a point with the scoring system. Each round the Chief will change to the next player." Margin="100,10,100,5" IsVisible="False" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
-            <Grid x:Name="card" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="330" WidthRequest="250" Margin="50,50,50,50">
-                <Grid.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnCardTapped"/>
-                </Grid.GestureRecognizers>
+            <Image x:Name="rulesImage" Source="C:\Users\SachaMiller\source\repos\GetYakkingV2\Imges\Rules.png" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="330" WidthRequest="250" Aspect="AspectFill" IsVisible="{Binding Source={x:Reference rulesLabel}, Path=IsVisible}">
+                <Image.Shadow>
+                    <Shadow Brush="Black" Offset="5,5" Opacity="0.8" Radius="10"/>
+                </Image.Shadow>
+            </Image>
+
+            <Label x:Name="rulesLabel" Text="Welcome to Classic Get Yakking, How the game works: [...]" TextColor="Black" HorizontalTextAlignment="Center" Margin="25,50,25,50" IsVisible="False" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="200" WidthRequest="200" Grid.Row="1" />
+
+            <Grid x:Name="card" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="330" WidthRequest="250" Margin="20,50,20,50">
                 <Grid x:Name="frontView" BackgroundColor="white">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCardTapped"/>
+                    </Grid.GestureRecognizers>
                     <Image Source="C:\Users\SachaMiller\source\repos\GetYakkingV2\Imges\Classic_Cover.png" Aspect="AspectFit"/>
                 </Grid>
+
                 <Grid x:Name="backView" BackgroundColor="LightCoral" IsVisible="False">
-                    <!-- Add Flip Counter Label here -->
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnBackCardTapped"/>
+                    </Grid.GestureRecognizers>
                     <Label x:Name="flipCounterLabel" Text="Flips - 0" HorizontalOptions="Center" VerticalOptions="Center" TextColor="White"/>
                 </Grid>
+
+                <Grid.Shadow>
+                    <Shadow Brush="Black" Offset="5,5" Opacity="0.8" Radius="10"/>
+                </Grid.Shadow>
             </Grid>
         </Grid>
     </StackLayout>
