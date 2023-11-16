@@ -60,6 +60,11 @@ namespace GetYakkingV2
                 Radius = 10
             };
         }
+        private void OnScoreClicked(object sender, EventArgs e)
+        {
+            // Logic for what happens when the Score button is clicked
+            // You can add your implementation here
+        }
 
         private void UpdateFlipCounterDisplay()
         {

@@ -4,8 +4,19 @@
              BackgroundColor="#7ABFFF">
 
     <StackLayout>
-        <Button x:Name="rulesButton" Text="Rules" BackgroundColor="white" TextColor="#3e89cf" Clicked="OnRulesClicked" HorizontalOptions="End" VerticalOptions="Start" Margin="25,10,25,0" WidthRequest="100" HeightRequest="50" />
+        <!-- Horizontal layout for Score and Rules buttons -->
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center" VerticalOptions="Center" Margin="10">
+            <!-- Score Button -->
+            <Button x:Name="scoreButton" Text="Score" BackgroundColor="white" TextColor="#3e89cf" Clicked="OnScoreClicked" WidthRequest="100" HeightRequest="50" />
 
+            <!-- Spacer to push buttons to left and right -->
+            <BoxView HorizontalOptions="FillAndExpand" />
+
+            <!-- Rules Button -->
+            <Button x:Name="rulesButton" Text="Rules" BackgroundColor="white" TextColor="#3e89cf" Clicked="OnRulesClicked" WidthRequest="100" HeightRequest="50" />
+        </HorizontalStackLayout>
+
+        <!-- The rest of your page content -->
         <Grid VerticalOptions="FillAndExpand">
             <Image x:Name="rulesImage" Source="C:\Users\SachaMiller\source\repos\GetYakkingV2\Imges\Rules.png" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="330" WidthRequest="250" Aspect="AspectFill" IsVisible="{Binding Source={x:Reference rulesLabel}, Path=IsVisible}">
                 <Image.Shadow>

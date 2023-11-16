@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
 
 namespace GetYakkingV2
@@ -8,35 +9,31 @@ namespace GetYakkingV2
         public MainPage()
         {
             InitializeComponent();
-            InitializeVideoBackground();
         }
 
-        void InitializeVideoBackground()
+        private async Task AnimateButton(Button button)
         {
-            var videoHtml = @"
-                <html>
-                    <body style='margin: 0; padding: 0; overflow: hidden;'>
-                        <video width='100%' height='100%' autoplay loop muted>
-                            <source src='C:\Users\SachaMiller\Downloads\planksip™ loopable bubble background.mp4' type='video/mp4'>
-                        </video>
-                    </body>
-                </html>";
-            VideoBackground.Source = new HtmlWebViewSource { Html = videoHtml };
+            // Scale up slightly
+            await button.ScaleTo(1.1, 100, Easing.Linear);
+            // Scale back to original size
+            await button.ScaleTo(1.0, 100, Easing.Linear);
         }
-
 
         private async void OnClassicClicked(object sender, EventArgs e)
         {
+            await AnimateButton(sender as Button);
             await Navigation.PushAsync(new ClassicPage());
         }
 
         private async void OnCouplesClicked(object sender, EventArgs e)
         {
+            await AnimateButton(sender as Button);
             await Navigation.PushAsync(new CouplesPage());
         }
 
         private async void OnRiskyClicked(object sender, EventArgs e)
         {
+            await AnimateButton(sender as Button);
             await Navigation.PushAsync(new RiskyPage());
         }
     }
