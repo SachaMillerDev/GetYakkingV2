@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
 
 namespace GetYakkingV2
@@ -13,27 +14,39 @@ namespace GetYakkingV2
             InitializeComponent();
         }
 
-        private void OnRulesClicked(object sender, EventArgs e)
+        private async Task AnimateButton(Button button)
         {
+            await button.ScaleTo(1.5, 100, Easing.Linear);
+            await button.ScaleTo(1.0, 100, Easing.Linear);
+        }
+
+        private async void OnRulesClicked(object sender, EventArgs e)
+        {
+            await AnimateButton((Button)sender);
             areRulesVisible = !areRulesVisible;
             card.IsVisible = !areRulesVisible;
             rulesLabel.IsVisible = areRulesVisible;
-            rulesButton.Text = areRulesVisible ? " Hide " : " Rules ";
+            rulesButton.Text = areRulesVisible ? "Hide" : "Rules";
+        }
+
+        private async void OnScoreClicked(object sender, EventArgs e)
+        {
+            await AnimateButton((Button)sender);
+            // Add logic for Score button click
         }
 
         private async void OnCardTapped(object sender, EventArgs e)
         {
-            card.Shadow = null; // Disable the shadow during the flip animation
-
-            await frontView.RotateYTo(90, 250); // Rotate to 90 degrees
+            card.Shadow = null;
+            await frontView.RotateYTo(90, 250);
             frontView.IsVisible = false;
             backView.IsVisible = true;
-            backView.RotationY = -90; // Set rotation to -90 degrees for backView
-            await backView.RotateYTo(0, 250); // Rotate to 0 degrees
+            flipCounterLabel.IsVisible = true; // Show flip counter on back card
+            backView.RotationY = -90;
+            await backView.RotateYTo(0, 250);
             flipCounter++;
             UpdateFlipCounterDisplay();
-
-            card.Shadow = new Shadow // Re-enable the shadow after the flip animation completes
+            card.Shadow = new Shadow
             {
                 Brush = Brush.Black,
                 Offset = new Point(5f, 5f),
@@ -44,26 +57,20 @@ namespace GetYakkingV2
 
         private async void OnBackCardTapped(object sender, EventArgs e)
         {
-            card.Shadow = null; // Disable the shadow during the flip animation
-
-            await backView.RotateYTo(90, 250); // Rotate to 90 degrees
+            card.Shadow = null;
+            await backView.RotateYTo(90, 250);
             backView.IsVisible = false;
             frontView.IsVisible = true;
-            frontView.RotationY = -90; // Set rotation to -90 degrees for frontView
-            await frontView.RotateYTo(0, 250); // Rotate to 0 degrees
-
-            card.Shadow = new Shadow // Re-enable the shadow after the flip animation completes
+            flipCounterLabel.IsVisible = false; // Hide flip counter when front card is visible
+            frontView.RotationY = -90;
+            await frontView.RotateYTo(0, 250);
+            card.Shadow = new Shadow
             {
                 Brush = Brush.Black,
                 Offset = new Point(5f, 5f),
                 Opacity = 0.8f,
                 Radius = 10
             };
-        }
-        private void OnScoreClicked(object sender, EventArgs e)
-        {
-            // Logic for what happens when the Score button is clicked
-            // You can add your implementation here
         }
 
         private void UpdateFlipCounterDisplay()
