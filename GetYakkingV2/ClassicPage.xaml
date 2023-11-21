@@ -6,63 +6,57 @@
     <StackLayout>
         <!-- Horizontal layout for Score and Rules buttons -->
         <HorizontalStackLayout Spacing="5" HorizontalOptions="Center" VerticalOptions="Center" Margin="10,10,10,0">
-            <!-- Frame for Score Button with Shadow -->
-            <Frame Padding="0" HasShadow="True" CornerRadius="5" >
+            <Frame Padding="0" HasShadow="True" CornerRadius="5">
                 <Button x:Name="scoreButton" Text="Score" BackgroundColor="white" TextColor="#3e89cf" Clicked="OnScoreClicked" WidthRequest="100" HeightRequest="50" />
             </Frame>
 
-            <!-- Spacer to push buttons to left and right -->
             <BoxView HorizontalOptions="FillAndExpand" />
 
-            <!-- Frame for Rules Button with Shadow -->
             <Frame Padding="0" HasShadow="True" CornerRadius="5">
                 <Button x:Name="rulesButton" Text="Rules" BackgroundColor="white" TextColor="#3e89cf" Clicked="OnRulesClicked" WidthRequest="100" HeightRequest="50" />
             </Frame>
         </HorizontalStackLayout>
 
         <!-- The rest of your page content -->
-        <Grid VerticalOptions="FillAndExpand">
-            <!-- Rules Card Image -->
-            <Image x:Name="rulesImage" Source="C:\Users\SachaMiller\source\repos\GetYakkingV2\Imges\Rules.png" 
-                   HorizontalOptions="Center" VerticalOptions="Center" 
-                   HeightRequest="330" WidthRequest="250" Aspect="AspectFill" 
-                   IsVisible="{Binding Source={x:Reference rulesLabel}, Path=IsVisible}">
+        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="Center">
+            <!-- Modified Rules Card Image -->
+            <Image x:Name="rulesImage" Source="C:\Users\SachaMiller\source\repos\GetYakkingV2\Imges\Backview.png" 
+                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                   HeightRequest="330" WidthRequest="250" Aspect="AspectFit" 
+                   IsVisible="{Binding Source={x:Reference rulesLabel}, Path=IsVisible}" Margin="10">
                 <Image.Shadow>
                     <Shadow Brush="Black" Offset="5,5" Opacity="0.8" Radius="10"/>
                 </Image.Shadow>
             </Image>
 
+            <!-- Modified Rules Label -->
             <Label x:Name="rulesLabel" Text="Welcome to Classic Get Yakking, How the game works: [...]" 
                    TextColor="Black" HorizontalTextAlignment="Center" Margin="25,50,25,50" 
                    IsVisible="False" HorizontalOptions="Center" VerticalOptions="Center" 
-                   HeightRequest="200" WidthRequest="200" />
+                   HeightRequest="200" WidthRequest="200" FontSize="Small"/>
 
-            <Grid x:Name="card" HorizontalOptions="Center" VerticalOptions="Center" 
-                  HeightRequest="330" WidthRequest="250" Margin="10,10,10,10">
-                <Grid x:Name="frontView">
+            <Grid x:Name="card" HeightRequest="330" WidthRequest="250" Margin="10">
+                <Grid x:Name="frontView" IsVisible="True">
+                    <Image Source="C:\Users\SachaMiller\source\repos\GetYakkingV2\Imges\Classic_Cover.png" 
+                           Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnCardTapped"/>
                     </Grid.GestureRecognizers>
-                    <Image Source="C:\Users\SachaMiller\source\repos\GetYakkingV2\Imges\Classic_Cover.png" Aspect="AspectFit"/>
                 </Grid>
 
                 <Grid x:Name="backView" IsVisible="False">
+                    <Image Source="C:\Users\SachaMiller\source\repos\GetYakkingV2\Imges\Backview.png"
+                           Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                    <Label x:Name="flipCounterLabel" Text="Flips - 0" 
+                           VerticalOptions="Center" HorizontalOptions="Center"
+                           TextColor="Black" FontSize="Small"/>
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnBackCardTapped"/>
                     </Grid.GestureRecognizers>
-                    <Image Source="C:\Users\SachaMiller\source\repos\GetYakkingV2\Imges\Rules.png" Aspect="AspectFit"/>
                 </Grid>
 
-                <!-- Flip Counter Label in a separate container for better visibility -->
-                <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                    <Label x:Name="flipCounterLabel" Text="Flips - 0" 
-                           AbsoluteLayout.LayoutBounds=".5,.5,AutoSize,AutoSize"
-                           AbsoluteLayout.LayoutFlags="PositionProportional"
-                           TextColor="White" FontSize="Large"/>
-                </AbsoluteLayout>
-
                 <Grid.Shadow>
-                    <Shadow Brush="Black" Offset="5,5" Opacity="0.8" Radius="10"/>
+                    <Shadow Brush="Black" Offset="5,5" Opacity="0.8" Radius="8"/>
                 </Grid.Shadow>
             </Grid>
         </Grid>

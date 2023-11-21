@@ -37,33 +37,29 @@ namespace GetYakkingV2
 
         private async void OnCardTapped(object sender, EventArgs e)
         {
-            card.Shadow = null;
-            await frontView.RotateYTo(90, 250);
-            frontView.IsVisible = false;
-            backView.IsVisible = true;
-            flipCounterLabel.IsVisible = true; // Show flip counter on back card
-            backView.RotationY = -90;
-            await backView.RotateYTo(0, 250);
-            flipCounter++;
-            UpdateFlipCounterDisplay();
-            card.Shadow = new Shadow
-            {
-                Brush = Brush.Black,
-                Offset = new Point(5f, 5f),
-                Opacity = 0.8f,
-                Radius = 10
-            };
+            await FlipCard(frontView, backView);
         }
 
         private async void OnBackCardTapped(object sender, EventArgs e)
         {
+            await FlipCard(backView, frontView);
+        }
+
+        private async Task FlipCard(View fromView, View toView)
+        {
             card.Shadow = null;
-            await backView.RotateYTo(90, 250);
-            backView.IsVisible = false;
-            frontView.IsVisible = true;
-            flipCounterLabel.IsVisible = false; // Hide flip counter when front card is visible
-            frontView.RotationY = -90;
-            await frontView.RotateYTo(0, 250);
+            await fromView.RotateYTo(90, 250);
+            fromView.IsVisible = false;
+            toView.IsVisible = true;
+            toView.RotationY = -90;
+            await toView.RotateYTo(0, 250);
+            flipCounter++;
+            UpdateFlipCounterDisplay();
+            ApplyShadowToCard();
+        }
+
+        private void ApplyShadowToCard()
+        {
             card.Shadow = new Shadow
             {
                 Brush = Brush.Black,
