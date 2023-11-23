@@ -47,7 +47,7 @@
                 <Grid x:Name="backView" IsVisible="False">
                     <Image Source="C:\Users\SachaMiller\source\repos\GetYakkingV2\Imges\Backview.png"
                            Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                    <Label x:Name="flipCounterLabel" Text="Flips - 0" 
+                    <Label x:Name="flipCounterLabel"
                            VerticalOptions="Center" HorizontalOptions="Center"
                            TextColor="Black" FontSize="Small"/>
                     <Grid.GestureRecognizers>

@@ -71,7 +71,7 @@ namespace GetYakkingV2
 
         private void UpdateFlipCounterDisplay()
         {
-            flipCounterLabel.Text = $"Flips - {flipCounter}";
+           // flipCounterLabel.Text = $"Flips - {flipCounter}";
         }
     }
 }
