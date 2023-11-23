@@ -25,7 +25,7 @@
                    HeightRequest="330" WidthRequest="250" Aspect="AspectFit" 
                    IsVisible="{Binding Source={x:Reference rulesLabel}, Path=IsVisible}" Margin="10">
                 <Image.Shadow>
-                    <Shadow Brush="Black" Offset="5,5" Opacity="0.8" Radius="10"/>
+                    <Shadow Brush="Black" Offset="10,10" Opacity="0.6" Radius="10"/>
                 </Image.Shadow>
             </Image>
 
@@ -56,7 +56,7 @@
                 </Grid>
 
                 <Grid.Shadow>
-                    <Shadow Brush="Black" Offset="5,5" Opacity="0.8" Radius="8"/>
+                    <Shadow Brush="black" Offset="10,10" Opacity="0.6" Radius="10"/>
                 </Grid.Shadow>
             </Grid>
         </Grid>

@@ -63,8 +63,8 @@ namespace GetYakkingV2
             card.Shadow = new Shadow
             {
                 Brush = Brush.Black,
-                Offset = new Point(5f, 5f),
-                Opacity = 0.8f,
+                Offset = new Point(10f, 10f),
+                Opacity = 0.6f,
                 Radius = 10
             };
         }
