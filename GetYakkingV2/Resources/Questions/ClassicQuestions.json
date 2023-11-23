@@ -1,0 +1,84 @@
+﻿{
+  "values": [
+    {
+      "QuestionID": "1",
+      "QuestionText": "What is something you do that you are way too old to still be doing? Are you embarrassed about it ?",
+      "Category": "Personal"
+    },
+    {
+      "QuestionID": "2",
+      "QuestionText": "What is something you have bought that was a waste of money?",
+      "Category": "Personal"
+    },
+    {
+      "QuestionID": "3",
+      "QuestionText": "What do you think disappoints your parents most about you?",
+      "Category": "Personal"
+    },
+    {
+      "QuestionID": "4",
+      "QuestionText": "Which part of your body would you make bigger and which part of your body would you make smaller ?",
+      "Category": "Personal"
+    },
+    {
+      "QuestionID": "5",
+      "QuestionText": "What is something your family did that you thought was normal but you now realise is weird",
+      "Category": "Personal"
+    },
+    {
+      "QuestionID": "6",
+      "QuestionText": "Other than romantic partners, how many people have you seen naked as an adult!? What were the circumstances?",
+      "Category": "Romantic"
+    },
+    {
+      "QuestionID": "7",
+      "QuestionText": "What is something that you have always wanted to ask about the opposite gender?",
+      "Category": "Romantic"
+    },
+    {
+      "QuestionID": "8",
+      "QuestionText": "Using three adjectives describe how you lost your virginity...? Now explain why these are relevant to your experience",
+      "Category": "Romantic"
+    },
+    {
+      "QuestionID": "9",
+      "QuestionText": "If you could bring an inanimate object to life what would it be and why?",
+      "Category": "Ridiculous"
+    },
+    {
+      "QuestionID": "10",
+      "QuestionText": "What messed up thing do you think about but could never actually do?",
+      "Category": "Ridiculous"
+    },
+    {
+      "QuestionID": "11",
+      "QuestionText": "Describe yourself as if you were auditioning for a dating show. Make your audition as honest and cheesy as you can!",
+      "Category": "Ridiculous"
+    },
+    {
+      "QuestionID": "12",
+      "QuestionText": "What conspiracy theory do you most strongly believe in? The Yaks are listening",
+      "Category": "Ridiculous"
+    },
+    {
+      "QuestionID": "13",
+      "QuestionText": "Which player has the most disgusting habit? Each player must have a different answer",
+      "Category": "Group"
+    },
+    {
+      "QuestionID": "14",
+      "QuestionText": "If you could give another player a ridiculous tattoo, who would it be and what would you give them ?",
+      "Category": "Group"
+    },
+    {
+      "QuestionID": "15",
+      "QuestionText": "What was your opinion of each player when you first met them? How has it changed?",
+      "Category": "Group"
+    },
+    {
+      "QuestionID": "16",
+      "QuestionText": "Which player is the biggest liar? What is one of the worst lies you have heard them tell?",
+      "Category": "Group"
+    }
+  ]
+}
