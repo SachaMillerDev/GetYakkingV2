@@ -1,23 +1,40 @@
-﻿
+﻿using System;
+using System.Collections.ObjectModel;
+using Microsoft.Maui.Controls;
 
-public partial class AddPlayerPage : ContentPage
+namespace GetYakkingV2
 {
-    public AddPlayerPage()
+    public partial class AddPlayerPage : ContentPage
     {
-        InitializeComponent();
-        UpdatePlayersList();
-    }
+        ObservableCollection<Player> players = new ObservableCollection<Player>();
 
-    private void OnPlayerNameEntryCompleted(object sender, EventArgs e)
-    {
-        var playerName = playerNameEntry.Text;
-        // Add logic to add player
-        UpdatePlayersList();
-    }
+        public AddPlayerPage()
+        {
+            InitializeComponent();
+            playersList.ItemsSource = players;
+        }
 
-    private void UpdatePlayersList()
-    {
-        // Update the players list
-        // If no players, display "add your first player"
+        private void OnPlayerNameEntryCompleted(object sender, EventArgs e)
+        {
+            var playerName = playerNameEntry.Text;
+            if (!string.IsNullOrWhiteSpace(playerName))
+            {
+                players.Add(new Player(playerName));
+                playerNameEntry.Text = string.Empty; // Clear the entry
+            }
+        }
+
+        private void UpdatePlayersList()
+        {
+            if (players.Count == 0)
+            {
+                // Display "add your first player" message
+            }
+            else
+            {
+                // Update the ListView with players
+                playersList.ItemsSource = players;
+            }
+        }
     }
 }

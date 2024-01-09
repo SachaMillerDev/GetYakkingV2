@@ -1,20 +1,32 @@
-﻿public partial class ViewPlayersPage : ContentPage
+﻿using System.Collections.ObjectModel;
+using Microsoft.Maui.Controls;
+
+namespace GetYakkingV2
 {
-    public ViewPlayersPage()
+    public partial class ViewPlayersPage : ContentPage
     {
-        InitializeComponent();
-        UpdatePlayersList();
-    }
+        ObservableCollection<Player> players = new ObservableCollection<Player>();
 
-    private void OnPlayerTapped(object sender, ItemTappedEventArgs e)
-    {
-        var player = e.Item as Player; // Assuming 'Player' is your model
-        // Logic to increment score
-        UpdatePlayersList();
-    }
+        public ViewPlayersPage()
+        {
+            InitializeComponent();
+            playersList.ItemsSource = players;
+            UpdatePlayersList();
+        }
 
-    private void UpdatePlayersList()
-    {
-        // Update the players list with scores
+        private void OnPlayerTapped(object sender, ItemTappedEventArgs e)
+        {
+            if (e.Item is Player player)
+            {
+                player.IncrementScore();
+                UpdatePlayersList();
+            }
+        }
+
+        private void UpdatePlayersList()
+        {
+            playersList.ItemsSource = null;
+            playersList.ItemsSource = players;
+        }
     }
 }
