@@ -12,17 +12,17 @@ namespace GetYakkingV2
 
         private void OnAddPlayerClicked(object sender, EventArgs e)
         {
-            // Logic for adding a player
+            Navigation.PushAsync(new AddPlayerPage());
         }
 
         private void OnRemovePlayerClicked(object sender, EventArgs e)
         {
-            // Logic for removing a player
+            Navigation.PushAsync(new RemovePlayerPage());
         }
 
         private void OnViewClicked(object sender, EventArgs e)
         {
-            // Logic for viewing the scoreboard
+            Navigation.PushAsync(new ViewPlayersPage());
         }
     }
 }
