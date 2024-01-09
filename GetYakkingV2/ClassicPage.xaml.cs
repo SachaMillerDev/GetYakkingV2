@@ -42,8 +42,9 @@ public partial class ClassicPage : ContentPage
     private async void OnScoreClicked(object sender, EventArgs e)
     {
         await AnimateButton((Button)sender);
-        // Add logic for Score button click
+        await Navigation.PushAsync(new ScoreboardPage());
     }
+
 
     private async void OnCardTapped(object sender, EventArgs e)
     {

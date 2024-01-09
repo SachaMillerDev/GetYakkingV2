@@ -64,6 +64,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Compile Update="ScoreboardPage.xaml.cs">
+        <DependentUpon>ScoreboardPage.xaml</DependentUpon>
+      </Compile>
       <Compile Update="RiskyPage.xaml.cs">
         <DependentUpon>RiskyPage.xaml</DependentUpon>
       </Compile>
@@ -76,6 +79,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <MauiXaml Update="ScoreboardPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
       <MauiXaml Update="RiskyPage.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>

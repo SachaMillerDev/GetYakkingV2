@@ -1,0 +1,15 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GetYakkingV2.ScoreboardPage"
+             BackgroundColor="#7ABFFF">
+
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+        <!-- Title Button -->
+        <Button Text="Scoreboard" IsEnabled="False" BackgroundColor="Gray" TextColor="White"/>
+
+        <!-- Buttons for scoreboard actions -->
+        <Button x:Name="addPlayerButton" Text="Add Player" Clicked="OnAddPlayerClicked"/>
+        <Button x:Name="removePlayerButton" Text="Remove Player" Clicked="OnRemovePlayerClicked"/>
+        <Button x:Name="viewButton" Text="View" Clicked="OnViewClicked"/>
+    </StackLayout>
+</ContentPage>
