@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
 
 namespace GetYakkingV2
@@ -11,11 +12,15 @@ namespace GetYakkingV2
             playersList.ItemsSource = PlayerDataService.Instance.Players;
         }
 
-        private void OnPlayerTapped(object sender, ItemTappedEventArgs e)
+        private async void OnPlayerTapped(object sender, ItemTappedEventArgs e)
         {
             if (e.Item is Player player)
             {
-                player.IncrementScore();
+                bool confirm = await DisplayAlert("Confirm", $"Are you sure you want to give a point to {player.Name}?", "Yes", "No");
+                if (confirm)
+                {
+                    player.IncrementScore();
+                }
             }
         }
     }

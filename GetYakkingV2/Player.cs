@@ -24,7 +24,13 @@ namespace GetYakkingV2
             {
                 _score = value;
                 OnPropertyChanged(nameof(Score));
+                OnPropertyChanged(nameof(NameAndScore)); // Notify UI when Score changes
             }
+        }
+
+        public string NameAndScore
+        {
+            get { return $"{Name} - Score: {Score}"; }
         }
 
         public Player(string name)

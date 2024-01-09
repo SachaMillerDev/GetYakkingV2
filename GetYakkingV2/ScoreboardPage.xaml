@@ -5,7 +5,7 @@
 
     <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="20">
         <!-- Title Button with Rounded Corners -->
-        <Button Text="Scoreboard" IsEnabled="False" BackgroundColor="white" TextColor="#3e89cf" FontSize="Large" CornerRadius="20"/>
+        <Button Text="Scores" IsEnabled="False" BackgroundColor="white" TextColor="#3e89cf" FontSize="Large" CornerRadius="20"/>
 
         <!-- Buttons for scoreboard actions -->
         <Button x:Name="addPlayerButton" Text="Add Player" Style="{StaticResource ScoreboardButtonStyle}" TextColor="Green" Clicked="OnAddPlayerClicked"/>
