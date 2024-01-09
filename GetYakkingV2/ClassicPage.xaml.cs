@@ -39,11 +39,11 @@ public partial class ClassicPage : ContentPage
         rulesButton.Text = areRulesVisible ? "Hide" : "Rules";
     }
 
-    private async void OnScoreClicked(object sender, EventArgs e)
-    {
-        await AnimateButton((Button)sender);
-        await Navigation.PushAsync(new ScoreboardPage());
-    }
+private async void OnScoreClicked(object sender, EventArgs e)
+{
+    await AnimateButton((Button)sender);
+    await Navigation.PushAsync(new ScoreboardPage());
+}
 
 
     private async void OnCardTapped(object sender, EventArgs e)

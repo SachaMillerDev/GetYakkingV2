@@ -1,4 +1,6 @@
-﻿public partial class AddPlayerPage : ContentPage
+﻿
+
+public partial class AddPlayerPage : ContentPage
 {
     public AddPlayerPage()
     {

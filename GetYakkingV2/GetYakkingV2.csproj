@@ -64,17 +64,17 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Update="Scoring\RemovePlayerPage.xaml.cs">
-        <DependentUpon>RemovePlayerPage.xaml</DependentUpon>
-      </Compile>
-      <Compile Update="Scoring\ViewPlayersPage.xaml.cs">
-        <DependentUpon>ViewPlayersPage.xaml</DependentUpon>
-      </Compile>
-      <Compile Update="Scoring\AddPlayerPage.xaml.cs">
+      <Compile Update="AddPlayerPage.xaml.cs">
         <DependentUpon>AddPlayerPage.xaml</DependentUpon>
       </Compile>
-      <Compile Update="Scoring\ScoreboardPage.xaml.cs">
+      <Compile Update="RemovePlayerPage.xaml.cs">
+        <DependentUpon>RemovePlayerPage.xaml</DependentUpon>
+      </Compile>
+      <Compile Update="ScoreboardPage.xaml.cs">
         <DependentUpon>ScoreboardPage.xaml</DependentUpon>
+      </Compile>
+      <Compile Update="ViewPlayersPage.xaml.cs">
+        <DependentUpon>ViewPlayersPage.xaml</DependentUpon>
       </Compile>
       <Compile Update="RiskyPage.xaml.cs">
         <DependentUpon>RiskyPage.xaml</DependentUpon>
@@ -88,16 +88,16 @@
     </ItemGroup>
 
     <ItemGroup>
-      <MauiXaml Update="Scoring\RemovePlayerPage.xaml">
+      <MauiXaml Update="AddPlayerPage.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
-      <MauiXaml Update="Scoring\ViewPlayersPage.xaml">
+      <MauiXaml Update="RemovePlayerPage.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
-      <MauiXaml Update="Scoring\AddPlayerPage.xaml">
+      <MauiXaml Update="ScoreboardPage.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
-      <MauiXaml Update="Scoring\ScoreboardPage.xaml">
+      <MauiXaml Update="ViewPlayersPage.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
       <MauiXaml Update="RiskyPage.xaml">
