@@ -21,6 +21,15 @@
                 <Setter Property="Padding" Value="14,10" />
             </Style>
 
+            <!-- New Style for Scoreboard Buttons -->
+            <Style x:Key="ScoreboardButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="white" />
+                <Setter Property="TextColor" Value="#3e89cf" />
+                <Setter Property="WidthRequest" Value="150" />
+                <Setter Property="HeightRequest" Value="60" />
+                <Setter Property="CornerRadius" Value="20" />
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

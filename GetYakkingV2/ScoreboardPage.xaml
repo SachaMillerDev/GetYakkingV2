@@ -3,13 +3,13 @@
              x:Class="GetYakkingV2.ScoreboardPage"
              BackgroundColor="#7ABFFF">
 
-    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-        <!-- Title Button -->
-        <Button Text="Scoreboard" IsEnabled="False" BackgroundColor="Gray" TextColor="White"/>
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="20">
+        <!-- Title Button with Rounded Corners -->
+        <Button Text="Scoreboard" IsEnabled="False" BackgroundColor="white" TextColor="#3e89cf" FontSize="Large" CornerRadius="20"/>
 
         <!-- Buttons for scoreboard actions -->
-        <Button x:Name="addPlayerButton" Text="Add Player" Clicked="OnAddPlayerClicked"/>
-        <Button x:Name="removePlayerButton" Text="Remove Player" Clicked="OnRemovePlayerClicked"/>
-        <Button x:Name="viewButton" Text="View" Clicked="OnViewClicked"/>
+        <Button x:Name="addPlayerButton" Text="Add Player" Style="{StaticResource ScoreboardButtonStyle}" TextColor="Green" Clicked="OnAddPlayerClicked"/>
+        <Button x:Name="removePlayerButton" Text="Remove Player" Style="{StaticResource ScoreboardButtonStyle}" TextColor="Red" Clicked="OnRemovePlayerClicked"/>
+        <Button x:Name="viewButton" Text="View" Style="{StaticResource ScoreboardButtonStyle}" Clicked="OnViewClicked"/>
     </StackLayout>
 </ContentPage>
