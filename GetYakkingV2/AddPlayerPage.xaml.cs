@@ -6,12 +6,10 @@ namespace GetYakkingV2
 {
     public partial class AddPlayerPage : ContentPage
     {
-        ObservableCollection<Player> players = new ObservableCollection<Player>();
-
         public AddPlayerPage()
         {
             InitializeComponent();
-            playersList.ItemsSource = players;
+            playersList.ItemsSource = PlayerDataService.Instance.Players;
         }
 
         private void OnPlayerNameEntryCompleted(object sender, EventArgs e)
@@ -19,21 +17,8 @@ namespace GetYakkingV2
             var playerName = playerNameEntry.Text;
             if (!string.IsNullOrWhiteSpace(playerName))
             {
-                players.Add(new Player(playerName));
-                playerNameEntry.Text = string.Empty; // Clear the entry
-            }
-        }
-
-        private void UpdatePlayersList()
-        {
-            if (players.Count == 0)
-            {
-                // Display "add your first player" message
-            }
-            else
-            {
-                // Update the ListView with players
-                playersList.ItemsSource = players;
+                PlayerDataService.Instance.Players.Add(new Player(playerName));
+                playerNameEntry.Text = string.Empty;
             }
         }
     }

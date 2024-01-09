@@ -5,13 +5,10 @@ namespace GetYakkingV2
 {
     public partial class ViewPlayersPage : ContentPage
     {
-        ObservableCollection<Player> players = new ObservableCollection<Player>();
-
         public ViewPlayersPage()
         {
             InitializeComponent();
-            playersList.ItemsSource = players;
-            UpdatePlayersList();
+            playersList.ItemsSource = PlayerDataService.Instance.Players;
         }
 
         private void OnPlayerTapped(object sender, ItemTappedEventArgs e)
@@ -19,14 +16,7 @@ namespace GetYakkingV2
             if (e.Item is Player player)
             {
                 player.IncrementScore();
-                UpdatePlayersList();
             }
-        }
-
-        private void UpdatePlayersList()
-        {
-            playersList.ItemsSource = null;
-            playersList.ItemsSource = players;
         }
     }
 }
