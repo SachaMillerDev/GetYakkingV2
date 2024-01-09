@@ -30,10 +30,10 @@
             </Image>
 
             <!-- Modified Rules Label -->
-            <Label x:Name="rulesLabel" Text="Welcome to Classic Get Yakking, How the game works: [...]" 
-                   TextColor="Black" HorizontalTextAlignment="Center" Margin="25,50,25,50" 
+            <Label x:Name="rulesLabel" Text="Welcome to Classic Get Yakking, The yak chief, appointed each round, reads the card on screen. Other players take turns answering. At the round's end, the chief selects a winner and awards points." 
+                   TextColor="Black" HorizontalTextAlignment="Center" Margin="25,25,25,25" 
                    IsVisible="False" HorizontalOptions="Center" VerticalOptions="Center" 
-                   HeightRequest="200" WidthRequest="200" FontSize="Small"/>
+                   HeightRequest="250" WidthRequest="190" FontSize="Micro"/>
 
             <Grid x:Name="card" HeightRequest="330" WidthRequest="250" Margin="10">
                 <Grid x:Name="frontView" IsVisible="True">
@@ -47,9 +47,6 @@
                 <Grid x:Name="backView" IsVisible="False">
                     <Image Source="C:\Users\SachaMiller\source\repos\GetYakkingV2\Imges\Backview.png"
                            Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                    <Label x:Name="flipCounterLabel"
-                           VerticalOptions="Center" HorizontalOptions="Center"
-                           TextColor="Black" FontSize="Small"/>
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnBackCardTapped"/>
                     </Grid.GestureRecognizers>
@@ -59,6 +56,16 @@
                     <Shadow Brush="black" Offset="10,10" Opacity="0.6" Radius="10"/>
                 </Grid.Shadow>
             </Grid>
+
+            <!-- Labels for Flip Counter, Special Message, and Timer -->
+            <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                <Label x:Name="flipCounterLabel"
+                       TextColor="Black" FontSize="Small"/>
+                <Label x:Name="specialMessageLabel"
+                       TextColor="Black" FontSize="Small"/>
+                <Label x:Name="timeLabel"
+                       TextColor="Black" FontSize="Small"/>
+            </StackLayout>
         </Grid>
     </StackLayout>
 </ContentPage>

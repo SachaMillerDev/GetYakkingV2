@@ -59,7 +59,4 @@
   <ItemGroup>
     <Folder Include="Properties" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="DB-UploadService.cs" />
-  </ItemGroup>
 </Project>

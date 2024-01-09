@@ -2,79 +2,83 @@
 using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
 
-namespace GetYakkingV2
+namespace GetYakkingV2;
+
+public partial class RiskyPage : ContentPage
 {
-    public partial class RiskyPage : ContentPage
+    private bool areRulesVisible = false;
+    private int flipCounter = 0; // Counter for card flips
+
+    public RiskyPage()
     {
-        private bool areRulesVisible = false;
-        private int flipCounter = 0; // Counter for card flips
+        InitializeComponent();
+    }
 
-        public RiskyPage()
+    private async Task AnimateButton(Button button)
+    {
+        await button.ScaleTo(1.5, 100, Easing.Linear);
+        await button.ScaleTo(1.0, 100, Easing.Linear);
+    }
+
+    private async void OnRulesClicked(object sender, EventArgs e)
+    {
+        await AnimateButton((Button)sender);
+        areRulesVisible = !areRulesVisible;
+        card.IsVisible = !areRulesVisible;
+        rulesLabel.IsVisible = areRulesVisible;
+        rulesButton.Text = areRulesVisible ? "Hide" : "Rules";
+    }
+
+    private async void OnCardTapped(object sender, EventArgs e)
+    {
+        await FlipCard(frontView, backView);
+    }
+
+    private async void OnBackCardTapped(object sender, EventArgs e)
+    {
+        await FlipCard(backView, frontView);
+    }
+
+    private async Task FlipCard(View fromView, View toView)
+    {
+        card.Shadow = null;
+        await fromView.RotateYTo(90, 250);
+        fromView.IsVisible = false;
+        toView.IsVisible = true;
+        toView.RotationY = -90;
+        await toView.RotateYTo(0, 250);
+
+        // Increment flip counter only when flipping to the back view
+        if (toView == backView)
         {
-            InitializeComponent();
-        }
-
-        private async Task AnimateButton(Button button)
-        {
-            // Scale up slightly over a longer duration
-            await button.ScaleTo(1.1, 100, Easing.Linear);
-            // Scale back to original size
-            await button.ScaleTo(1.0, 100, Easing.Linear);
-        }
-
-        private async void OnRulesClicked(object sender, EventArgs e)
-        {
-            await AnimateButton((Button)sender);
-            areRulesVisible = !areRulesVisible;
-            card.IsVisible = !areRulesVisible;
-            rulesLabel.IsVisible = areRulesVisible;
-            rulesButton.Text = areRulesVisible ? "Hide" : "Rules";
-        }
-
-
-        private async void OnCardTapped(object sender, EventArgs e)
-        {
-            card.Shadow = null; // Disable the shadow during the flip animation
-
-            await frontView.RotateYTo(90, 250); // Rotate to 90 degrees
-            frontView.IsVisible = false;
-            backView.IsVisible = true;
-            backView.RotationY = -90; // Set rotation to -90 degrees for backView
-            await backView.RotateYTo(0, 250); // Rotate to 0 degrees
             flipCounter++;
-            UpdateFlipCounterDisplay();
-
-            card.Shadow = new Shadow // Re-enable the shadow after the flip animation completes
-            {
-                Brush = Brush.Black,
-                Offset = new Point(5f, 5f),
-                Opacity = 0.8f,
-                Radius = 10
-            };
         }
 
-        private async void OnBackCardTapped(object sender, EventArgs e)
+        UpdateFlipCounterDisplay();
+        ApplyShadowToCard();
+    }
+
+    private void ApplyShadowToCard()
+    {
+        card.Shadow = new Shadow
         {
-            card.Shadow = null; // Disable the shadow during the flip animation
+            Brush = Brush.Black,
+            Offset = new Point(10f, 10f),
+            Opacity = 0.6f,
+            Radius = 10
+        };
+    }
 
-            await backView.RotateYTo(90, 250); // Rotate to 90 degrees
-            backView.IsVisible = false;
-            frontView.IsVisible = true;
-            frontView.RotationY = -90; // Set rotation to -90 degrees for frontView
-            await frontView.RotateYTo(0, 250); // Rotate to 0 degrees
-
-            card.Shadow = new Shadow // Re-enable the shadow after the flip animation completes
-            {
-                Brush = Brush.Black,
-                Offset = new Point(5f, 5f),
-                Opacity = 0.8f,
-                Radius = 10
-            };
-        }
-
-        private void UpdateFlipCounterDisplay()
+    private void UpdateFlipCounterDisplay()
+    {
+        // Update flip counter display only if the back view is visible
+        if (backView.IsVisible)
         {
             flipCounterLabel.Text = $"Flips - {flipCounter}";
+        }
+        else
+        {
+            flipCounterLabel.Text = string.Empty;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
 
@@ -8,10 +9,19 @@ public partial class ClassicPage : ContentPage
 {
     private bool areRulesVisible = false;
     private int flipCounter = 0; // Counter for card flips
+    private Stopwatch backViewTimer = new Stopwatch(); // Timer for back view
+    private bool timerRunning = false; // Flag to indicate if the timer is running
 
     public ClassicPage()
     {
         InitializeComponent();
+        Device.StartTimer(TimeSpan.FromSeconds(1), () => {
+            if (timerRunning)
+            {
+                UpdateTimeDisplay();
+            }
+            return true; // Keep the timer running
+        });
     }
 
     private async Task AnimateButton(Button button)
@@ -53,7 +63,19 @@ public partial class ClassicPage : ContentPage
         toView.IsVisible = true;
         toView.RotationY = -90;
         await toView.RotateYTo(0, 250);
-        flipCounter++;
+
+        if (toView == backView)
+        {
+            flipCounter++;
+            backViewTimer.Restart(); // Reset and start the timer
+            timerRunning = true;
+        }
+        else if (fromView == backView)
+        {
+            backViewTimer.Stop();
+            timerRunning = false;
+        }
+
         UpdateFlipCounterDisplay();
         ApplyShadowToCard();
     }
@@ -71,6 +93,26 @@ public partial class ClassicPage : ContentPage
 
     private void UpdateFlipCounterDisplay()
     {
-       // flipCounterLabel.Text = $"Flips - {flipCounter}";
+        if (backView.IsVisible)
+        {
+            flipCounterLabel.Text = $"Flips - {flipCounter}";
+            specialMessageLabel.Text = flipCounter % 5 == 0 ? "Preferred card showing now" : string.Empty;
+            UpdateTimeDisplay();
+        }
+        else
+        {
+            flipCounterLabel.Text = string.Empty;
+            specialMessageLabel.Text = string.Empty;
+            timeLabel.Text = string.Empty;
+        }
+    }
+
+    private void UpdateTimeDisplay()
+    {
+        if (backView.IsVisible)
+        {
+            TimeSpan timeSpent = backViewTimer.Elapsed;
+            timeLabel.Text = $"Time: {timeSpent:mm\\:ss}";
+        }
     }
 }
