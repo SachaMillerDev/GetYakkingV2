@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using Azure.Core.Diagnostics;
+using Microsoft.Data.SqlClient;
 using System.Data;
 
 namespace GetYakkingV2.Data
@@ -14,23 +15,20 @@ namespace GetYakkingV2.Data
 
         public DataTable ExecuteQuery(string query)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
-            {
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                    {
-                        DataTable dataTable = new DataTable();
-                        adapter.Fill(dataTable);
-                        return dataTable;
-                    }
-                }
-            }
+            // Setup a listener to monitor logged events.
+            using AzureEventSourceListener listener = AzureEventSourceListener.CreateConsoleLogger();
+            using SqlConnection connection = new(_connectionString);
+            using SqlCommand command = new(query, connection);
+            using SqlDataAdapter adapter = new(command);
+            
+            DataTable dataTable = new();
+            adapter.Fill(dataTable);
+            return dataTable;
         }
 
         public DataTable GetQuestionData()
         {
-            string query = "SELECT QuestionID, QuestionText, Category FROM YourTableName";
+            string query = "SELECT * from [dbo].[Questions]";
             return ExecuteQuery(query);
         }
 
