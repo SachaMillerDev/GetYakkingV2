@@ -18,7 +18,6 @@ public static class MauiProgram
         // Configure app configuration
         builder.Configuration.AddJsonFile("DB_Helper/appsettings.json", optional: false, reloadOnChange: true);
 
-        builder.Services.AddSingleton<PlayerDataService>();
         // Add database context
         builder.Services.AddSingleton<SqlDatabaseService>();
 
