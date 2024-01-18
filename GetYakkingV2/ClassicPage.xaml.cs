@@ -50,12 +50,12 @@ namespace GetYakkingV2
         private async void OnCardTapped(object sender, EventArgs e)
         {
             await FlipCard(frontView, backView);
-            var dataTable = new SqlDatabaseService(YourConnectionString).GetQuestionData();
-            // Assuming you want to display the first row's data
+            var connectionString = "Server=tcp:get-yakking.database.windows.net,1433;Initial Catalog=get-yakking;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;Authentication='Active Directory Default';";
+            var dataTable = new SqlDatabaseService(connectionString).GetQuestionData();
             if (dataTable.Rows.Count > 0)
             {
                 var row = dataTable.Rows[0];
-                questionTextBox.Text = $"{row["QuestionID"]}: {row["QuestionText"]} - {row["Category"]}";
+                questionEntry.Text = $"{row["QuestionID"]}: {row["QuestionText"]} - {row["Category"]}";
             }
         }
 
