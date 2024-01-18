@@ -2,11 +2,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GetYakkingV2.RemovePlayerPage"
              BackgroundColor="#7ABFFF">
-    <StackLayout>
-        <ListView x:Name="playersList" ItemTapped="OnPlayerTapped">
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+        <ListView x:Name="playersList" ItemTapped="OnPlayerTapped" WidthRequest="200" SeparatorVisibility="None">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Name}" />
+                    <ViewCell>
+                        <Frame Padding="10" CornerRadius="10" BackgroundColor="White" Margin="5" HasShadow="True">
+                            <Grid>
+                                <Label Text="{Binding Name}" 
+                                       HorizontalOptions="Center" 
+                                       VerticalOptions="Center" 
+                                       TextColor="Black"
+                                       FontAttributes="Bold"/>
+                            </Grid>
+                        </Frame>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

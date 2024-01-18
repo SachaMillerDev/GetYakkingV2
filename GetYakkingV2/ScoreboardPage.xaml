@@ -5,11 +5,11 @@
 
     <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="20">
         <!-- Title Button with Rounded Corners -->
-        <Button Text="Scores" IsEnabled="False" BackgroundColor="white" TextColor="#3e89cf" FontSize="Large" CornerRadius="20"/>
+        <Button Text="SCORING " IsEnabled="False" BackgroundColor="white" TextColor="#3e89cf" FontSize="Large" CornerRadius="10"/>
 
         <!-- Buttons for scoreboard actions -->
-        <Button x:Name="addPlayerButton" Text="Add Player" Style="{StaticResource ScoreboardButtonStyle}" TextColor="Green" Clicked="OnAddPlayerClicked"/>
-        <Button x:Name="removePlayerButton" Text="Remove Player" Style="{StaticResource ScoreboardButtonStyle}" TextColor="Red" Clicked="OnRemovePlayerClicked"/>
-        <Button x:Name="viewButton" Text="View" Style="{StaticResource ScoreboardButtonStyle}" Clicked="OnViewClicked"/>
+        <Button x:Name="addPlayerButton" Text="Add Player" BackgroundColor="White" TextColor="Green" CornerRadius="10" FontAttributes="Bold" Clicked="OnAddPlayerClicked"/>
+        <Button x:Name="removePlayerButton" Text="Remove Player" BackgroundColor="White" TextColor="Red" CornerRadius="10" FontAttributes="Bold" Clicked="OnRemovePlayerClicked"/>
+        <Button x:Name="viewButton" Text="Leaderboard" BackgroundColor="White" CornerRadius="10" TextColor="#7ABFFF" FontAttributes="Bold" Clicked="OnViewClicked"/>
     </StackLayout>
 </ContentPage>

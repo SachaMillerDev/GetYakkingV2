@@ -9,7 +9,12 @@ namespace GetYakkingV2
         public ViewPlayersPage()
         {
             InitializeComponent();
-            playersList.ItemsSource = PlayerDataService.Instance.Players;
+            // Sort the players by score in descending order
+            var sortedPlayers = PlayerDataService.Instance.Players
+                                .OrderByDescending(player => player.Score)
+                                .ToList();
+
+            playersList.ItemsSource = new ObservableCollection<Player>(sortedPlayers);
         }
 
         private async void OnPlayerTapped(object sender, ItemTappedEventArgs e)
