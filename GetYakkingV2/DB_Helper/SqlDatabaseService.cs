@@ -1,33 +1,39 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.Data;
 
-namespace GetYakkingV2.Data;
-
-public class SqlDatabaseService
+namespace GetYakkingV2.Data
 {
-    private readonly string _connectionString;
-
-    public SqlDatabaseService(string connectionString)
+    public class SqlDatabaseService
     {
-        _connectionString = connectionString;
-    }
+        private readonly string _connectionString;
 
-    public DataTable ExecuteQuery(string query)
-    {
-        using (SqlConnection connection = new SqlConnection(_connectionString))
+        public SqlDatabaseService(string connectionString)
         {
-            connection.Open();
-            using (SqlCommand command = new SqlCommand(query, connection))
+            _connectionString = connectionString;
+        }
+
+        public DataTable ExecuteQuery(string query)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-                    return dataTable;
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+                        return dataTable;
+                    }
                 }
             }
         }
-    }
 
-    // Add more methods for Insert, Update, Delete as needed
+        public DataTable GetQuestionData()
+        {
+            string query = "SELECT QuestionID, QuestionText, Category FROM YourTableName";
+            return ExecuteQuery(query);
+        }
+
+        // Add more methods for Insert, Update, Delete as needed
+    }
 }

@@ -45,6 +45,7 @@
                 </Grid>
 
                 <Grid x:Name="backView" IsVisible="False">
+                    <TextBox x:Name="questionTextBox" Text="{Binding YourDataBinding}" />
                     <Image Source="C:\Users\SachaMiller\source\repos\GetYakkingV2\Imges\Backview.png"
                            Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                     <Grid.GestureRecognizers>
