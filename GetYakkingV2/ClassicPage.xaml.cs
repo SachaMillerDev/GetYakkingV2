@@ -24,13 +24,19 @@ namespace GetYakkingV2
         private void LoadQuestions()
         {
             var assembly = IntrospectionExtensions.GetTypeInfo(typeof(ClassicPage)).Assembly;
-            Stream stream = assembly.GetManifestResourceStream("C:\\Users\\SachaMiller\\source\\repos\\GetYakkingV2\\GetYakkingV2\\Questions\\ClassicQuestions.json");
+            Stream stream = assembly.GetManifestResourceStream("GetYakkingV2.Questions.ClassicQuestions.json");
+            if (stream == null)
+            {
+                throw new FileNotFoundException("Embedded resource not found.");
+            }
+
             using (var reader = new StreamReader(stream))
             {
                 var jsonString = reader.ReadToEnd();
                 questions = JsonSerializer.Deserialize<List<Question>>(jsonString);
             }
         }
+
 
         private async Task AnimateButton(Button button)
         {

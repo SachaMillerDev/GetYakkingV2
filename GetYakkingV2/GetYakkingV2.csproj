@@ -50,6 +50,14 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Content Remove="Questions\ClassicQuestions.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="Questions\ClassicQuestions.json" />
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="EntityFramework" Version="6.4.4" />
         <PackageReference Include="LibVLCSharp" Version="3.8.1" />
         <PackageReference Include="LibVLCSharp.Forms" Version="3.8.1" />
