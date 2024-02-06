@@ -80,12 +80,18 @@ namespace GetYakkingV2
             if (toView == backView)
             {
                 flipCounter++;
-                DisplayQuestion();  // Display the question every time the back view is shown
+                DisplayQuestion(); // Display the question every time the back view is shown
+                questionLabel.IsVisible = true; // Show the question label
+            }
+            else
+            {
+                questionLabel.IsVisible = false; // Hide the question label
             }
 
             UpdateFlipCounterDisplay();
             ApplyShadowToCard();
         }
+
 
         private void ApplyShadowToCard()
         {
