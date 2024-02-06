@@ -37,7 +37,6 @@ namespace GetYakkingV2
             }
         }
 
-
         private async Task AnimateButton(Button button)
         {
             await button.ScaleTo(1.5, 100, Easing.Linear);
@@ -62,7 +61,6 @@ namespace GetYakkingV2
         private async void OnCardTapped(object sender, EventArgs e)
         {
             await FlipCard(frontView, backView);
-            DisplayQuestion();
         }
 
         private async void OnBackCardTapped(object sender, EventArgs e)
@@ -82,6 +80,7 @@ namespace GetYakkingV2
             if (toView == backView)
             {
                 flipCounter++;
+                DisplayQuestion();  // Display the question every time the back view is shown
             }
 
             UpdateFlipCounterDisplay();
