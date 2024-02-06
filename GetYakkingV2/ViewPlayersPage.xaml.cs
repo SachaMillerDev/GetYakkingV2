@@ -1,5 +1,5 @@
 ﻿using System.Collections.ObjectModel;
-using System.Threading.Tasks;
+using System.Linq;
 using Microsoft.Maui.Controls;
 
 namespace GetYakkingV2
@@ -9,12 +9,30 @@ namespace GetYakkingV2
         public ViewPlayersPage()
         {
             InitializeComponent();
-            // Sort the players by score in descending order
+            SortAndBindPlayers();
+            SubscribeToScoreChanges();
+        }
+
+        private void SortAndBindPlayers()
+        {
             var sortedPlayers = PlayerDataService.Instance.Players
                                 .OrderByDescending(player => player.Score)
                                 .ToList();
 
             playersList.ItemsSource = new ObservableCollection<Player>(sortedPlayers);
+        }
+
+        private void SubscribeToScoreChanges()
+        {
+            foreach (var player in PlayerDataService.Instance.Players)
+            {
+                player.OnScoreChanged += Player_OnScoreChanged;
+            }
+        }
+
+        private void Player_OnScoreChanged()
+        {
+            SortAndBindPlayers(); // Re-sort and update the list
         }
 
         private async void OnPlayerTapped(object sender, ItemTappedEventArgs e)
@@ -26,6 +44,15 @@ namespace GetYakkingV2
                 {
                     player.IncrementScore();
                 }
+            }
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            foreach (var player in PlayerDataService.Instance.Players)
+            {
+                player.OnScoreChanged -= Player_OnScoreChanged;
             }
         }
     }

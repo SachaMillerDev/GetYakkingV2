@@ -15,12 +15,6 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
             });
 
-        // Configure app configuration
-        builder.Configuration.AddJsonFile("DB_Helper/appsettings.json", optional: false, reloadOnChange: true);
-
-        // Add database context
-        builder.Services.AddSingleton<SqlDatabaseService>();
-
 
         builder.Services.AddMauiBlazorWebView();
 #if DEBUG

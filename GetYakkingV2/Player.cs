@@ -24,7 +24,8 @@ namespace GetYakkingV2
             {
                 _score = value;
                 OnPropertyChanged(nameof(Score));
-                OnPropertyChanged(nameof(NameAndScore)); // Notify UI when Score changes
+                OnPropertyChanged(nameof(NameAndScore));
+                OnScoreChanged?.Invoke(); // Notify when Score changes
             }
         }
 
@@ -45,6 +46,7 @@ namespace GetYakkingV2
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+        public event Action OnScoreChanged; // Event for score change
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
