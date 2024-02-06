@@ -100,14 +100,7 @@ namespace GetYakkingV2
 
         private void UpdateFlipCounterDisplay()
         {
-            if (backView.IsVisible)
-            {
-                flipCounterLabel.Text = $"Flips - {flipCounter}";
-            }
-            else
-            {
-                flipCounterLabel.Text = string.Empty;
-            }
+            flipCounterLabel.IsVisible = false;
         }
 
         private void DisplayQuestion()
