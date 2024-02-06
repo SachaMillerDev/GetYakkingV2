@@ -1,7 +1,10 @@
 ﻿using System;
-using System.Diagnostics;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Text.Json;
 using System.Threading.Tasks;
-using GetYakkingV2.Data;
 using Microsoft.Maui.Controls;
 
 namespace GetYakkingV2
@@ -10,20 +13,23 @@ namespace GetYakkingV2
     {
         private bool areRulesVisible = false;
         private int flipCounter = 0; // Counter for card flips
-        private Stopwatch backViewTimer = new Stopwatch(); // Timer for back view
-        private bool timerRunning = false; // Flag to indicate if the timer is running
+        private List<Question> questions;
 
         public ClassicPage()
         {
             InitializeComponent();
-            Device.StartTimer(TimeSpan.FromSeconds(1), () =>
+            LoadQuestions();
+        }
+
+        private void LoadQuestions()
+        {
+            var assembly = IntrospectionExtensions.GetTypeInfo(typeof(ClassicPage)).Assembly;
+            Stream stream = assembly.GetManifestResourceStream("C:\\Users\\SachaMiller\\source\\repos\\GetYakkingV2\\GetYakkingV2\\Questions\\ClassicQuestions.json");
+            using (var reader = new StreamReader(stream))
             {
-                if (timerRunning)
-                {
-                    UpdateTimeDisplay();
-                }
-                return true; // Keep the timer running
-            });
+                var jsonString = reader.ReadToEnd();
+                questions = JsonSerializer.Deserialize<List<Question>>(jsonString);
+            }
         }
 
         private async Task AnimateButton(Button button)
@@ -50,6 +56,7 @@ namespace GetYakkingV2
         private async void OnCardTapped(object sender, EventArgs e)
         {
             await FlipCard(frontView, backView);
+            DisplayQuestion();
         }
 
         private async void OnBackCardTapped(object sender, EventArgs e)
@@ -65,17 +72,12 @@ namespace GetYakkingV2
             toView.IsVisible = true;
             toView.RotationY = -90;
             await toView.RotateYTo(0, 250);
+
             if (toView == backView)
             {
                 flipCounter++;
-                backViewTimer.Restart(); // Reset and start the timer
-                timerRunning = true;
             }
-            else if (fromView == backView)
-            {
-                backViewTimer.Stop();
-                timerRunning = false;
-            }
+
             UpdateFlipCounterDisplay();
             ApplyShadowToCard();
         }
@@ -96,24 +98,25 @@ namespace GetYakkingV2
             if (backView.IsVisible)
             {
                 flipCounterLabel.Text = $"Flips - {flipCounter}";
-                specialMessageLabel.Text = flipCounter % 5 == 0 ? "Preferred card showing now" : string.Empty;
-                UpdateTimeDisplay();
             }
             else
             {
                 flipCounterLabel.Text = string.Empty;
-                specialMessageLabel.Text = string.Empty;
-                timeLabel.Text = string.Empty;
             }
         }
 
-        private void UpdateTimeDisplay()
+        private void DisplayQuestion()
         {
-            if (backView.IsVisible)
-            {
-                TimeSpan timeSpent = backViewTimer.Elapsed;
-                timeLabel.Text = $"Time: {timeSpent:mm\\:ss}";
-            }
+            var question = questions.FirstOrDefault(); // Replace with your logic
+            questionLabel.Text = question?.Text; // Set the text of the label to the question
         }
+    }
+
+    public class Question
+    {
+        public string Id { get; set; }
+        public string Category { get; set; }
+        public string Text { get; set; }
+        public int Rank { get; set; }
     }
 }

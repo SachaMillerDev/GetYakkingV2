@@ -35,6 +35,12 @@
                    IsVisible="False" HorizontalOptions="Center" VerticalOptions="Center" 
                    HeightRequest="250" WidthRequest="190" FontSize="Micro"/>
 
+            <Label x:Name="questionLabel"
+                   Text="Question will appear here"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   FontSize="Medium"/>
+
             <Grid x:Name="card" HeightRequest="330" WidthRequest="250" Margin="10">
                 <Grid x:Name="frontView" IsVisible="True">
                     <Image Source="C:\Users\SachaMiller\source\repos\GetYakkingV2\Imges\Classic_Cover.png" 
@@ -51,6 +57,7 @@
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnBackCardTapped"/>
                     </Grid.GestureRecognizers>
+
                 </Grid>
 
                 <Grid.Shadow>
