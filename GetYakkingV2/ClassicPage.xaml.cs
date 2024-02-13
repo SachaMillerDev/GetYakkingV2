@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text.Json;
+using System.Timers;
 using Microsoft.Maui.Controls;
 
 namespace GetYakkingV2
@@ -12,12 +13,18 @@ namespace GetYakkingV2
     {
         private bool areRulesVisible = false;
         private int flipCounter = 0; // Counter for card flips
-        private List<Question> questions;
+        private List<Question> questions, unrankedQuestions, rankedQuestions;
+        private Question currentQuestion;
+        private int questionDisplayCount = 0;
+        private System.Timers.Timer rankTimer;
+
 
         public ClassicPage()
         {
             InitializeComponent();
             LoadQuestions();
+            SetupTimer();
+            DisplayQuestion();
         }
 
         private void LoadQuestions()
@@ -32,114 +39,91 @@ namespace GetYakkingV2
             {
                 var jsonString = reader.ReadToEnd();
                 questions = JsonSerializer.Deserialize<List<Question>>(jsonString);
+                unrankedQuestions = new List<Question>(questions);
+                rankedQuestions = new List<Question>();
             }
         }
 
-        private async Task AnimateButton(Button button)
+        private void SetupTimer()
         {
-            await button.ScaleTo(1.5, 100, Easing.Linear);
-            await button.ScaleTo(1.0, 100, Easing.Linear);
+            rankTimer = new System.Timers.Timer(20000);
+            rankTimer.Elapsed += OnTimedEvent;
+            rankTimer.AutoReset = true;
+            rankTimer.Enabled = true;
         }
 
-        private async void OnRulesClicked(object sender, EventArgs e)
+        private void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
-            await AnimateButton((Button)sender);
-            areRulesVisible = !areRulesVisible;
-            card.IsVisible = !areRulesVisible;
-            rulesLabel.IsVisible = areRulesVisible;
-            rulesButton.Text = areRulesVisible ? "Hide" : "Rules";
-        }
-
-        private async void OnScoreClicked(object sender, EventArgs e)
-        {
-            await AnimateButton((Button)sender);
-            await Navigation.PushAsync(new ScoreboardPage());
-        }
-
-        private async void OnCardTapped(object sender, EventArgs e)
-        {
-            await FlipCard(frontView, backView);
-        }
-
-        private async void OnBackCardTapped(object sender, EventArgs e)
-        {
-            await FlipCard(backView, frontView);
-        }
-
-        private async Task FlipCard(View fromView, View toView)
-        {
-            card.Shadow = null;
-            await fromView.RotateYTo(90, 250);
-            fromView.IsVisible = false;
-            toView.IsVisible = true;
-            toView.RotationY = -90;
-            await toView.RotateYTo(0, 250);
-
-            if (toView == backView)
+            Device.BeginInvokeOnMainThread(() =>
             {
-                flipCounter++;
-                DisplayQuestion(); // Update the question text
-                questionLabel.IsVisible = true; // Show the question label after flip
+                if (currentQuestion != null)
+                {
+                    currentQuestion.Rank += 1;
+                    IncrementCategoryRank(currentQuestion.Category);
+                    // Optionally update UI here
+                }
+            });
+        }
+
+        private void IncrementCategoryRank(string category)
+        {
+            bool incremented = false;
+            foreach (var question in questions.Where(q => q.Category == category))
+            {
+                if (question == currentQuestion || !incremented)
+                {
+                    question.Rank += 1;
+                    incremented = true; // Ensure other questions in the category are incremented only once
+                }
             }
-            else
-            {
-                questionLabel.IsVisible = false; // Hide the question label after flip
-            }
-
-            UpdateFlipCounterDisplay();
-            ApplyShadowToCard();
-        }
-
-
-
-        private void ShowQuestion()
-        {
-            questionLabel.IsVisible = true;
-            DisplayQuestion();
-        }
-
-        private void HideQuestion()
-        {
-            questionLabel.IsVisible = false;
-        }
-
-        private void ApplyShadowToCard()
-        {
-            card.Shadow = new Shadow
-            {
-                Brush = Brush.Black,
-                Offset = new Point(10f, 10f),
-                Opacity = 0.6f,
-                Radius = 10
-            };
-        }
-
-        private void UpdateFlipCounterDisplay()
-        {
-            flipCounterLabel.IsVisible = false;
         }
 
         private void DisplayQuestion()
         {
-            questionLabel.Text = "Test question to display"; // Temporarily hardcode a test question
-            questionLabel.IsVisible = true; // Ensure this is set
+            questionDisplayCount++;
+            Question questionToDisplay;
 
-            if (questions != null && questions.Any()) // Check if the list is not null or empty
+            if (questionDisplayCount % 5 == 0 && rankedQuestions.Any())
             {
-                var question = questions.FirstOrDefault();
-                questionLabel.Text = question?.QuestionText; // Changed from Question to QuestionText
+                questionToDisplay = SelectRandomQuestion(rankedQuestions);
+            }
+            else
+            {
+                questionToDisplay = SelectRandomQuestion(unrankedQuestions);
+            }
+
+            if (questionToDisplay != null)
+            {
+                currentQuestion = questionToDisplay;
+                questionLabel.Text = currentQuestion.QuestionText;
+                questionLabel.IsVisible = true;
+
+                if (unrankedQuestions.Contains(questionToDisplay))
+                {
+                    unrankedQuestions.Remove(questionToDisplay);
+                    rankedQuestions.Add(questionToDisplay);
+                }
             }
         }
 
+        private Question SelectRandomQuestion(List<Question> questionsList)
+        {
+            if (!questionsList.Any())
+            {
+                return null;
+            }
 
+            var random = new Random();
+            int index = random.Next(questionsList.Count);
+            return questionsList[index];
+        }
+
+        public class Question
+        {
+            public string Id { get; set; }
+            public string Category { get; set; }
+            public string QuestionText { get; set; }
+            public int Rank { get; set; }
+        }
     }
-
-    public class Question
-    {
-        public string Id { get; set; }
-        public string Category { get; set; }
-        public string QuestionText { get; set; } // Changed from Text to Question
-        public int Rank { get; set; }
-    }
-
 }
