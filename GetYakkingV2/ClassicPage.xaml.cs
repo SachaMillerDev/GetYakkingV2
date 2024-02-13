@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text.Json;
-using System.Timers;
+using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
 
 namespace GetYakkingV2
@@ -18,11 +18,12 @@ namespace GetYakkingV2
         private int questionDisplayCount = 0;
         private System.Timers.Timer rankTimer;
 
-
         public ClassicPage()
         {
             InitializeComponent();
             LoadQuestions();
+            unrankedQuestions = new List<Question>(questions);
+            rankedQuestions = new List<Question>();
             SetupTimer();
             DisplayQuestion();
         }
@@ -39,8 +40,6 @@ namespace GetYakkingV2
             {
                 var jsonString = reader.ReadToEnd();
                 questions = JsonSerializer.Deserialize<List<Question>>(jsonString);
-                unrankedQuestions = new List<Question>(questions);
-                rankedQuestions = new List<Question>();
             }
         }
 
@@ -52,7 +51,7 @@ namespace GetYakkingV2
             rankTimer.Enabled = true;
         }
 
-        private void OnTimedEvent(Object source, ElapsedEventArgs e)
+        private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
             Device.BeginInvokeOnMainThread(() =>
             {
@@ -60,20 +59,18 @@ namespace GetYakkingV2
                 {
                     currentQuestion.Rank += 1;
                     IncrementCategoryRank(currentQuestion.Category);
-                    // Optionally update UI here
                 }
             });
         }
 
         private void IncrementCategoryRank(string category)
         {
-            bool incremented = false;
-            foreach (var question in questions.Where(q => q.Category == category))
+            var categoryQuestions = questions.Where(q => q.Category == category).ToList();
+            foreach (var question in categoryQuestions)
             {
-                if (question == currentQuestion || !incremented)
+                if (question != currentQuestion)
                 {
                     question.Rank += 1;
-                    incremented = true; // Ensure other questions in the category are incremented only once
                 }
             }
         }
@@ -81,41 +78,97 @@ namespace GetYakkingV2
         private void DisplayQuestion()
         {
             questionDisplayCount++;
-            Question questionToDisplay;
-
             if (questionDisplayCount % 5 == 0 && rankedQuestions.Any())
             {
-                questionToDisplay = SelectRandomQuestion(rankedQuestions);
+                currentQuestion = SelectRandomQuestion(rankedQuestions);
             }
             else
             {
-                questionToDisplay = SelectRandomQuestion(unrankedQuestions);
+                currentQuestion = SelectRandomQuestion(unrankedQuestions);
+                if (currentQuestion != null)
+                {
+                    unrankedQuestions.Remove(currentQuestion);
+                    rankedQuestions.Add(currentQuestion);
+                }
             }
 
-            if (questionToDisplay != null)
+            if (currentQuestion != null)
             {
-                currentQuestion = questionToDisplay;
                 questionLabel.Text = currentQuestion.QuestionText;
                 questionLabel.IsVisible = true;
-
-                if (unrankedQuestions.Contains(questionToDisplay))
-                {
-                    unrankedQuestions.Remove(questionToDisplay);
-                    rankedQuestions.Add(questionToDisplay);
-                }
             }
         }
 
         private Question SelectRandomQuestion(List<Question> questionsList)
         {
-            if (!questionsList.Any())
+            if (questionsList.Count > 0)
             {
-                return null;
+                var random = new Random();
+                int index = random.Next(questionsList.Count);
+                return questionsList[index];
+            }
+            return null;
+        }
+
+        // Original methods from your provided code snippet
+        private async Task AnimateButton(Button button)
+        {
+            await button.ScaleTo(1.5, 100, Easing.Linear);
+            await button.ScaleTo(1.0, 100, Easing.Linear);
+        }
+
+        private async void OnRulesClicked(object sender, EventArgs e)
+        {
+            await AnimateButton((Button)sender);
+            areRulesVisible = !areRulesVisible;
+            card.IsVisible = !areRulesVisible;
+            rulesLabel.IsVisible = areRulesVisible;
+            rulesButton.Text = areRulesVisible ? "Hide" : "Rules";
+        }
+
+        private async void OnScoreClicked(object sender, EventArgs e)
+        {
+            await AnimateButton((Button)sender);
+            await Navigation.PushAsync(new ScoreboardPage());
+        }
+
+        private async void OnCardTapped(object sender, EventArgs e)
+        {
+            await FlipCard(frontView, backView);
+        }
+
+        private async void OnBackCardTapped(object sender, EventArgs e)
+        {
+            await FlipCard(backView, frontView);
+        }
+
+        private async Task FlipCard(View fromView, View toView)
+        {
+            card.Shadow = null;
+            await fromView.RotateYTo(90, 250);
+            fromView.IsVisible = false;
+            toView.IsVisible = true;
+            toView.RotationY = -90;
+            await toView.RotateYTo(0, 250);
+
+            if (toView == backView)
+            {
+                flipCounter++;
+                DisplayQuestion(); // This call might need adjustment based on your logic for when to display new questions
+                questionLabel.IsVisible = true; // Show the question label after flip
+            }
+            else
+            {
+                questionLabel.IsVisible = false; // Hide the question label after flip
             }
 
-            var random = new Random();
-            int index = random.Next(questionsList.Count);
-            return questionsList[index];
+            UpdateFlipCounterDisplay();
+            //ApplyShadowToCard();
+        }
+
+        private void UpdateFlipCounterDisplay()
+        {
+            // Update your flip counter display logic here
         }
 
         public class Question
