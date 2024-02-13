@@ -121,16 +121,22 @@ namespace GetYakkingV2
 
         private void DisplayQuestion()
         {
-            var question = questions.FirstOrDefault();
-            questionLabel.Text = question?.Text;
+            if (questions != null && questions.Any()) // Check if the list is not null or empty
+            {
+                var question = questions.FirstOrDefault();
+                questionLabel.Text = question?.QuestionText; // Changed from Question to QuestionText
+            }
         }
+
+
     }
 
     public class Question
     {
         public string Id { get; set; }
         public string Category { get; set; }
-        public string Text { get; set; }
+        public string QuestionText { get; set; } // Changed from Text to Question
         public int Rank { get; set; }
     }
+
 }
