@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text.Json;
-using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
 
 namespace GetYakkingV2
@@ -29,7 +28,6 @@ namespace GetYakkingV2
             {
                 throw new FileNotFoundException("Embedded resource not found.");
             }
-
             using (var reader = new StreamReader(stream))
             {
                 var jsonString = reader.ReadToEnd();
@@ -80,18 +78,30 @@ namespace GetYakkingV2
             if (toView == backView)
             {
                 flipCounter++;
-                DisplayQuestion(); // Display the question every time the back view is shown
-                questionLabel.IsVisible = true; // Show the question label
+                DisplayQuestion(); // Update the question text
+                questionLabel.IsVisible = true; // Show the question label after flip
             }
             else
             {
-                questionLabel.IsVisible = false; // Hide the question label
+                questionLabel.IsVisible = false; // Hide the question label after flip
             }
 
             UpdateFlipCounterDisplay();
             ApplyShadowToCard();
         }
 
+
+
+        private void ShowQuestion()
+        {
+            questionLabel.IsVisible = true;
+            DisplayQuestion();
+        }
+
+        private void HideQuestion()
+        {
+            questionLabel.IsVisible = false;
+        }
 
         private void ApplyShadowToCard()
         {
@@ -111,8 +121,8 @@ namespace GetYakkingV2
 
         private void DisplayQuestion()
         {
-            var question = questions.FirstOrDefault(); // Replace with your logic
-            questionLabel.Text = question?.Text; // Set the text of the label to the question
+            var question = questions.FirstOrDefault();
+            questionLabel.Text = question?.Text;
         }
     }
 
