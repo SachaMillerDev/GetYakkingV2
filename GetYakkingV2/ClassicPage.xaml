@@ -48,10 +48,12 @@
                     <Image Source="C:\Users\SachaMiller\source\repos\GetYakkingV2\Imges\Backview.png"
                            Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                     <Label x:Name="questionLabel"
-                           Text="Question will appear here"
+                           Text=""
                            HorizontalOptions="Center"
                            VerticalOptions="Center"
-                           FontSize="Medium"
+                           FontSize="Small"
+                           HeightRequest="250" 
+                           WidthRequest="150"
                            TextColor="Black" />
                     
                     <Grid.GestureRecognizers>

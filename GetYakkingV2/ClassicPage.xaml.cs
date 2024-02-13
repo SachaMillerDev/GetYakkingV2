@@ -121,6 +121,9 @@ namespace GetYakkingV2
 
         private void DisplayQuestion()
         {
+            questionLabel.Text = "Test question to display"; // Temporarily hardcode a test question
+            questionLabel.IsVisible = true; // Ensure this is set
+
             if (questions != null && questions.Any()) // Check if the list is not null or empty
             {
                 var question = questions.FirstOrDefault();
