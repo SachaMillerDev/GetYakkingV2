@@ -6,9 +6,7 @@
     <StackLayout>
         <!-- Horizontal layout for Score and Rules buttons -->
         <HorizontalStackLayout Spacing="5" HorizontalOptions="Center" VerticalOptions="Center" Margin="10,10,10,0">
-   
             <BoxView HorizontalOptions="FillAndExpand" />
-
             <Frame Padding="0" HasShadow="True" CornerRadius="5">
                 <Button x:Name="rulesButton" Text="Rules" BackgroundColor="white" TextColor="#3e89cf" Clicked="OnRulesClicked" WidthRequest="100" HeightRequest="50" />
             </Frame>
@@ -27,10 +25,10 @@
             </Image>
 
             <!-- Modified Rules Label -->
-            <Label x:Name="rulesLabel" Text="Welcome to Classic Get Yakking, How the game works: [...]" 
-                   TextColor="Black" HorizontalTextAlignment="Center" Margin="25,50,25,50" 
+            <Label x:Name="rulesLabel" Text="Welcome to Couples Get Yakking in this mode you will be asked burtal questions about your partner! There is no Winner" 
+                   TextColor="Black" HorizontalTextAlignment="Center" Margin="25,25,25,25" 
                    IsVisible="False" HorizontalOptions="Center" VerticalOptions="Center" 
-                   HeightRequest="200" WidthRequest="200" FontSize="Small"/>
+                   HeightRequest="250" WidthRequest="190" FontSize="Small"/>
 
             <Grid x:Name="card" HeightRequest="330" WidthRequest="250" Margin="10">
                 <Grid x:Name="frontView" IsVisible="True">

@@ -1,22 +1,16 @@
 [
   {
     "id": "1",
-    "category": "AboutYou",
     "QuestionText": "Tell me something I dont already know about you. The juicer the better!",
-    "rank": 0
   }
   ,
   {
     "id": "2",
-    "category": "AboutYou ",
     "QuestionText": "What is the most illegal or dangerous thing you have ever done? What made you do it ?",
-    "rank": 0
   }
   ,
   {
     "id": "3",
-    "category": "FoodDrink",
     "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
-    "rank": 0
   }
 ]

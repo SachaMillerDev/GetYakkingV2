@@ -25,7 +25,7 @@ namespace GetYakkingV2
             unrankedQuestions = new List<Question>(questions);
             rankedQuestions = new List<Question>();
             SetupTimer();
-            DisplayQuestion();
+            // DisplayQuestion(); // Comment out this initial call
         }
 
         private void LoadQuestions()
@@ -110,7 +110,6 @@ namespace GetYakkingV2
             return null;
         }
 
-        // Original methods from your provided code snippet
         private async Task AnimateButton(Button button)
         {
             await button.ScaleTo(1.5, 100, Easing.Linear);
@@ -134,16 +133,17 @@ namespace GetYakkingV2
 
         private async void OnCardTapped(object sender, EventArgs e)
         {
-            await FlipCard(frontView, backView);
+            await FlipCard(frontView, backView, true);
         }
 
         private async void OnBackCardTapped(object sender, EventArgs e)
         {
-            await FlipCard(backView, frontView);
+            await FlipCard(backView, frontView, false);
         }
 
-        private async Task FlipCard(View fromView, View toView)
+        private async Task FlipCard(View fromView, View toView, bool displayQuestionOnFlip)
         {
+            // Temporarily remove the shadow for the flip animation
             card.Shadow = null;
             await fromView.RotateYTo(90, 250);
             fromView.IsVisible = false;
@@ -151,10 +151,11 @@ namespace GetYakkingV2
             toView.RotationY = -90;
             await toView.RotateYTo(0, 250);
 
-            if (toView == backView)
+            // Display the question if needed
+            if (toView == backView && displayQuestionOnFlip)
             {
                 flipCounter++;
-                DisplayQuestion(); // This call might need adjustment based on your logic for when to display new questions
+                DisplayQuestion(); // Display question only after the flip
                 questionLabel.IsVisible = true; // Show the question label after flip
             }
             else
@@ -162,9 +163,24 @@ namespace GetYakkingV2
                 questionLabel.IsVisible = false; // Hide the question label after flip
             }
 
+            // Reapply the shadow to the card
+            ApplyShadowToCard();
+
             UpdateFlipCounterDisplay();
-            //ApplyShadowToCard();
         }
+
+        private void ApplyShadowToCard()
+        {
+            card.Shadow = new Shadow
+            {
+                Brush = Brush.Black,
+                Offset = new Point(6, 12),
+                Opacity = 0.6F, // Use 'F' suffix to denote float
+                Radius = 8F    // Use 'F' suffix to denote float
+            };
+        }
+
+
 
         private void UpdateFlipCounterDisplay()
         {
