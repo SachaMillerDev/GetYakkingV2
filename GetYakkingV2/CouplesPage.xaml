@@ -25,7 +25,7 @@
             </Image>
 
             <!-- Modified Rules Label -->
-            <Label x:Name="rulesLabel" Text="Welcome to Couples Get Yakking in this mode you will be asked burtal questions about your partner! There is no Winner" 
+            <Label x:Name="rulesLabel" Text="Welcome to Couples Get Yakking in this mode you will be asked brutal questions about your partner! There is no Winner" 
                    TextColor="Black" HorizontalTextAlignment="Center" Margin="25,25,25,25" 
                    IsVisible="False" HorizontalOptions="Center" VerticalOptions="Center" 
                    HeightRequest="250" WidthRequest="190" FontSize="Small"/>
@@ -42,9 +42,14 @@
                 <Grid x:Name="backView" IsVisible="False">
                     <Image Source="C:\Users\SachaMiller\source\repos\GetYakkingV2\Imges\Backview.png"
                            Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                    <Label x:Name="flipCounterLabel"
-                           VerticalOptions="Center" HorizontalOptions="Center"
-                           TextColor="Black" FontSize="Small"/>
+                    <Label x:Name="questionLabel"
+                           Text=""
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           FontSize="Small"
+                           HeightRequest="250" 
+                           WidthRequest="150"
+                           TextColor="Black" />
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnBackCardTapped"/>
                     </Grid.GestureRecognizers>
@@ -54,6 +59,12 @@
                     <Shadow Brush="black" Offset="10,10" Opacity="0.6" Radius="10"/>
                 </Grid.Shadow>
             </Grid>
+
+            <!-- Labels for Flip Counter -->
+            <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                <Label x:Name="flipCounterLabel"
+                       TextColor="Black" FontSize="Small"/>
+            </StackLayout>
         </Grid>
     </StackLayout>
 </ContentPage>
