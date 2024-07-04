@@ -4,11 +4,9 @@
              BackgroundColor="#FF4242">
 
     <StackLayout>
-        <!-- Horizontal layout for Score and Rules buttons -->
+        <!-- Horizontal layout for Rules button -->
         <HorizontalStackLayout Spacing="5" HorizontalOptions="Center" VerticalOptions="Center" Margin="10,10,10,0">
-
             <BoxView HorizontalOptions="FillAndExpand" />
-
             <Frame Padding="0" HasShadow="True" CornerRadius="5">
                 <Button x:Name="rulesButton" Text="Rules" BackgroundColor="white" TextColor="#3e89cf" Clicked="OnRulesClicked" WidthRequest="100" HeightRequest="50" />
             </Frame>
@@ -44,9 +42,14 @@
                 <Grid x:Name="backView" IsVisible="False">
                     <Image Source="C:\Users\SachaMiller\source\repos\GetYakkingV2\Imges\Backview.png"
                            Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                    <Label x:Name="flipCounterLabel"
-                           VerticalOptions="Center" HorizontalOptions="Center"
-                           TextColor="Black" FontSize="Small"/>
+                    <Label x:Name="questionLabel"
+                           Text=""
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           FontSize="Small"
+                           HeightRequest="250" 
+                           WidthRequest="150"
+                           TextColor="Black" />
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnBackCardTapped"/>
                     </Grid.GestureRecognizers>
@@ -56,6 +59,7 @@
                     <Shadow Brush="black" Offset="10,10" Opacity="0.6" Radius="10"/>
                 </Grid.Shadow>
             </Grid>
+
         </Grid>
     </StackLayout>
 </ContentPage>

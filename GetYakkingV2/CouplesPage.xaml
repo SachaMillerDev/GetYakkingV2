@@ -59,12 +59,6 @@
                     <Shadow Brush="black" Offset="10,10" Opacity="0.6" Radius="10"/>
                 </Grid.Shadow>
             </Grid>
-
-            <!-- Labels for Flip Counter -->
-            <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-                <Label x:Name="flipCounterLabel"
-                       TextColor="Black" FontSize="Small"/>
-            </StackLayout>
         </Grid>
     </StackLayout>
 </ContentPage>

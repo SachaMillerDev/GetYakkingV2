@@ -55,11 +55,11 @@
                            HeightRequest="250" 
                            WidthRequest="150"
                            TextColor="Black" />
-                    
+
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnBackCardTapped"/>
                     </Grid.GestureRecognizers>
-                    
+
 
                 </Grid>
 
@@ -67,16 +67,6 @@
                     <Shadow Brush="black" Offset="10,10" Opacity="0.6" Radius="10"/>
                 </Grid.Shadow>
             </Grid>
-
-            <!-- Labels for Flip Counter, Special Message, and Timer -->
-            <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-                <Label x:Name="flipCounterLabel"
-                       TextColor="Black" FontSize="Small"/>
-                <Label x:Name="specialMessageLabel"
-                       TextColor="Black" FontSize="Small"/>
-                <Label x:Name="timeLabel"
-                       TextColor="Black" FontSize="Small"/>
-            </StackLayout>
         </Grid>
     </StackLayout>
 </ContentPage>

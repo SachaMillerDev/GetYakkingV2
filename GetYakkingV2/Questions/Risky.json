@@ -4,19 +4,600 @@
     "category": "AboutYou",
     "QuestionText": "Tell me something I dont already know about you. The juicer the better!",
     "rank": 0
-  }
-  ,
+  },
   {
     "id": "2",
     "category": "AboutYou ",
     "QuestionText": "What is the most illegal or dangerous thing you have ever done? What made you do it ?",
     "rank": 0
-  }
-  ,
+  },
   {
     "id": "3",
     "category": "FoodDrink",
     "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
     "rank": 0
+  },
+  {
+    "id": "4",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "5",
+    "category": "LoveLife",
+    "QuestionText": "Describe your love life by emojis that symbolise it best !",
+    "rank": 0
+  },
+  {
+    "id": "6",
+    "category": "FoodDrink",
+    "QuestionText": "What is the worst descision you have made when drunk? What were the conequences?",
+    "rank": 0
+  },
+  {
+    "id": "7",
+    "category": "Gossip",
+    "QuestionText": "What is something that you would've been fired for if your boss found out ? '",
+    "rank": 0
+  },
+  {
+    "id": "8",
+    "category": "Drama",
+    "QuestionText": "What well loved celeb do you actually hate? WHy do you hate them ?",
+    "rank": 0
+  },
+  {
+    "id": "9",
+    "category": "Drama",
+    "QuestionText": "What is the worst trait you have inherited from your parents?",
+    "rank": 0
+  },
+  {
+    "id": "10",
+    "category": "Drama",
+    "QuestionText": "What do you think people say about you behind your back ? WHy do you think they say it?",
+    "rank": 0
+  },
+  {
+    "id": "11",
+    "category": "Drama",
+    "QuestionText": "If you were going to start an argument between one other player, what subject would it be about?",
+    "rank": 0
+  },
+  {
+    "id": "12",
+    "category": "Gossip",
+    "QuestionText": "What is the most controversial opinion or belief you hold? Nothing s off limits!",
+    "rank": 0
+  },
+  {
+    "id": "13",
+    "category": "Drama",
+    "QuestionText": "What is something each player could change or improve to become more attractive to you?",
+    "rank": 0
+  },
+  {
+    "id": "14",
+    "category": "Gossip",
+    "QuestionText": "Which fictional character from television or film do you find most relatable and why?",
+    "rank": 0
+  },
+  {
+    "id": "15",
+    "category": "FoodDrink",
+    "QuestionText": "What is something that you think you get better at when you are drunk?",
+    "rank": 0
+  },
+  {
+    "id": "16",
+    "category": "Gossip",
+    "QuestionText": "Which one of your friends do you think is best in bed and why?",
+    "rank": 0
+  },
+  {
+    "id": "17",
+    "category": "Drama",
+    "QuestionText": "What is the worst gift you have ever recieved adn what did you do with it?",
+    "rank": 0
+  },
+  {
+    "id": "18",
+    "category": "Drama",
+    "QuestionText": "What story do you hate, that your family and friends always tell about you?",
+    "rank": 0
+  },
+  {
+    "id": "19",
+    "category": "Gossip",
+    "QuestionText": "What is the pettiest grudge you still have today?",
+    "rank": 0
+  },
+  {
+    "id": "20",
+    "category": "FoodDrink",
+    "QuestionText": "Whats the most random place you have ever spilled your guts?",
+    "rank": 0
+  },
+  {
+    "id": "21",
+    "category": "Drama",
+    "QuestionText": "What are two things you would tell someone on a date to try and impress them?",
+    "rank": 0
+  },
+  {
+    "id": "22",
+    "category": "Gossip",
+    "QuestionText": "What aspect of your life do you think you will exaggerate or lie about to your child ?",
+    "rank": 0
+  },
+  {
+    "id": "23",
+    "category": "Drama",
+    "QuestionText": "What is the most digusting thing you do but find oddly satisfying?",
+    "rank": 0
+  },
+  {
+    "id": "24",
+    "category": "Gossip",
+    "QuestionText": "WHat is the strangest thing someone has overshared with you?",
+    "rank": 0
+  },
+  {
+    "id": "25",
+    "category": "Drama",
+    "QuestionText": "Show us the last 5 people you stalked on social media and explain why?",
+    "rank": 0
+  },
+  {
+    "id": "26",
+    "category": "AboutYou",
+    "QuestionText": "What is something you once thought was cool but now find cringe?",
+    "rank": 0
+  },
+  {
+    "id": "27",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "28",
+    "category": "Drama",
+    "QuestionText": "Which player would you most like to switch bodies with fro a week and why?",
+    "rank": 0
+  },
+  {
+    "id": "29",
+    "category": "Drama",
+    "QuestionText": "Which Player would you least trust with your social media passwords and why dont you trust them?",
+    "rank": 0
+  },
+  {
+    "id": "30",
+    "category": "AboutYou",
+    "QuestionText": "If you could start a buisness right now what woud it be?",
+    "rank": 0
+  },
+  {
+    "id": "31",
+    "category": "Drama",
+    "QuestionText": "Tell each player one thing you admire about them?",
+    "rank": 0
+  },
+  {
+    "id": "32",
+    "category": "Random",
+    "QuestionText": "The person reading this can create their own queston? you have the power of the yaks",
+    "rank": 0
+  },
+  {
+    "id": "33",
+    "category": "AboutYou",
+    "QuestionText": "What is one thing you have never told your family?",
+    "rank": 0
+  },
+  {
+    "id": "34",
+    "category": "Gossip",
+    "QuestionText": "What is your most disastrous bedroom experience ?",
+    "rank": 0
+  },
+  {
+    "id": "35",
+    "category": "AboutYou",
+    "QuestionText": "What period in your life would you consider your peak? Has it gone downhill or are you still to reach it",
+    "rank": 0
+  },
+  {
+    "id": "36",
+    "category": "AboutYou",
+    "QuestionText": "What simple task do you get more anxious about? Why do you find it so difficult",
+    "rank": 0
+  },
+  {
+    "id": "37",
+    "category": "Random",
+    "QuestionText": "If you were to set up a cult, what would be the 3 main rules?",
+    "rank": 0
+  },
+  {
+    "id": "38",
+    "category": "Drama",
+    "QuestionText": "Tell each player something that anoyys you about them",
+    "rank": 0
+  },
+  {
+    "id": "39",
+    "category": "Drama",
+    "QuestionText": "Order all the players from most to least attractive and where would you be",
+    "rank": 0
+  },
+  {
+    "id": "40",
+    "category": "AboutYou",
+    "QuestionText": "What is the strangest lie you believed?",
+    "rank": 0
+  },
+  {
+    "id": "41",
+    "category": "Drama",
+    "QuestionText": "If you were to start an OnlyFans what would you do to stand out?",
+    "rank": 0
+  },
+  {
+    "id": "42",
+    "category": "AboutYou",
+    "QuestionText": "How would you survive in a zombie apocalypse? WHich player would die first?",
+    "rank": 0
+  },
+  {
+    "id": "43",
+    "category": "AboutYou",
+    "QuestionText": "What is the most extreme 'substance' you have ever used? What happened",
+    "rank": 0
+  },
+  {
+    "id": "44",
+    "category": "Gossip",
+    "QuestionText": "What is something that gives off the biggest red flags? Would this immediatly put you off? ",
+    "rank": 0
+  },
+  {
+    "id": "45",
+    "category": "Drama",
+    "QuestionText": "What cartoon character do you find oddly attractve and why? this one might get disturbing",
+    "rank": 0
+  },
+  {
+    "id": "46",
+    "category": "AboutYou",
+    "QuestionText": "What is the most digusting thing you have had in your mouth? Give all the details",
+    "rank": 0
+  },
+  {
+    "id": "47",
+    "category": "Gossip",
+    "QuestionText": "Name and explain three things that give you the 'ick'? have you ever seen another player do this?",
+    "rank": 0
+  },
+  {
+    "id": "48",
+    "category": "AboutYou",
+    "QuestionText": "What is something you have tried before but never want to try again?",
+    "rank": 0
+  },
+  {
+    "id": "49",
+    "category": "AboutYou",
+    "QuestionText": "Which stereotype about your race,religion,gender or sexuality is most accurate about you?",
+    "rank": 0
+  },
+  {
+    "id": "50",
+    "category": "Drama",
+    "QuestionText": "Which player would you most like to marry and why? What would make them a good partner?",
+    "rank": 0
+  },
+  {
+    "id": "51",
+    "category": "AboutYou",
+    "QuestionText": "Tell me something I dont already know about you. The juicer the better!",
+    "rank": 0
+  },
+  {
+    "id": "52",
+    "category": "AboutYou ",
+    "QuestionText": "What is the most illegal or dangerous thing you have ever done? What made you do it ?",
+    "rank": 0
+  },
+  {
+    "id": "53",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "54",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "55",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "56",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "57",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "58",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "59",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "60",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "61",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "62",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "63",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "64",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "65",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "66",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "67",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "68",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "69",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "70",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "71",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "72",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "73",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "74",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "75",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "76",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "77",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "78",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "79",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "80",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "81",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "82",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "83",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "84",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "85",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "86",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "87",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "88",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "89",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "90",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "91",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "92",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "93",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "94",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "95",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "96",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "97",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "98",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "99",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
+  },
+  {
+    "id": "100",
+    "category": "FoodDrink",
+    "QuestionText": "If you were trying to impress someone, What food would you cook? What drink would you serve?",
+    "rank": 0
   }
+
 ]

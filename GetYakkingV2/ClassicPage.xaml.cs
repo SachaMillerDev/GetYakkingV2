@@ -165,8 +165,6 @@ namespace GetYakkingV2
 
             // Reapply the shadow to the card
             ApplyShadowToCard();
-
-            UpdateFlipCounterDisplay();
         }
 
         private void ApplyShadowToCard()
@@ -178,13 +176,6 @@ namespace GetYakkingV2
                 Opacity = 0.6F, // Use 'F' suffix to denote float
                 Radius = 8F    // Use 'F' suffix to denote float
             };
-        }
-
-
-
-        private void UpdateFlipCounterDisplay()
-        {
-            // Update your flip counter display logic here
         }
 
         public class Question
